@@ -23,6 +23,9 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 [plugins.rtx]
 inline = 'eval "$(rtx activate zsh)"'
 
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
 [plugins.zsh-defer]
 github = 'romkatv/zsh-defer'
 apply = ['source']
@@ -32,7 +35,4 @@ apply = ['source']
 local = "~/dotfiles/.config/sheldon/defer"
 use = ["*.zsh"]
 apply = ["defer"]
-
-[plugins.asdf]
-github = "asdf-vm/asdf"
 

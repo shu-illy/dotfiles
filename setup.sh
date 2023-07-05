@@ -34,6 +34,11 @@ if ! command -v rtx &> /dev/null; then
     brew install rtx
 fi
 
+# --- starshipインストール ---
+if ! command -v starship &> /dev/null; then
+    echo "starshipをインストールします..."
+    brew install starship
+fi
 
 # --- Sheldonの導入・設定 ---
 if ! command -v sheldon &> /dev/null; then
@@ -49,11 +54,18 @@ if [ ! -d "$HOME/.config/sheldon" ]; then
     mkdir "$HOME/.config/sheldon"
 fi
 
-if [ -f "$HOME/.config/sheldon/plugins.toml" ]; then
-    rm "$HOME/.config/sheldon/plugins.toml"
-fi
-command ln -s "$DOT_DIR/.config/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
+# if [ -f "$HOME/.config/sheldon/plugins.toml" ]; then
+#     rm "$HOME/.config/sheldon/plugins.toml"
+# fi
+echo "$DOT_DIR/.config/sheldon/plugins.toml -> $HOME/.config/sheldon/plugins.toml"
+ln -fs "$DOT_DIR/.config/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 
+# --- starship設定ファイルのシンボリックリンク作成 ---
+# if [ -f "$HOME/.config/starship.toml" ]; then
+#     rm "$HOME/.config/starship.toml"
+# fi
+echo "$DOT_DIR/.config/starship.toml -> $HOME/.config/starship.toml"
+ln -fs "$DOT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 
 # --- dotfileのリンク作成 ---
 if [ ! -d "$HOME/.dotbackup" ]; then
