@@ -29,6 +29,11 @@ else
     echo "Homebrewが既にインストールされています。"
 fi
 
+# --- rtxインストール ---
+if ! command -v brew &> /dev/null; then
+    brew install rtx
+fi
+
 
 # --- Sheldonの導入・設定 ---
 if ! command -v sheldon &> /dev/null; then
