@@ -30,7 +30,7 @@ else
 fi
 
 # --- rtxインストール ---
-if ! command -v brew &> /dev/null; then
+if ! command -v rtx &> /dev/null; then
     brew install rtx
 fi
 
