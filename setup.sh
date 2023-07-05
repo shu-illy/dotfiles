@@ -47,7 +47,7 @@ fi
 if [ -f "$HOME/.config/sheldon/plugins.toml" ]; then
     rm "$HOME/.config/sheldon/plugins.toml"
 fi
-ln -s "$DOT_DIR/.config/sheldon/plugins.toml $HOME/.config/sheldon/plugins.toml"
+command ln -s "$DOT_DIR/.config/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 
 
 # --- dotfileのリンク作成 ---
