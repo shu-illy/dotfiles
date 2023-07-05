@@ -26,3 +26,9 @@ disabled = true
 disabled = false
 time_format = "%Y-%m-%d %H:%M"
 utc_time_offset = "+9"
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
