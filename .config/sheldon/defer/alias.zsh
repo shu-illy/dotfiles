@@ -29,6 +29,15 @@ alias gcp="git cherry-pick"
 alias glo="git log --oneline"
 # ========================
 
+# === エイリアス Rails関連 ===
+alias be="bundle exec"
+alias bi="bundle install"
+alias rs="bundle exec rspec"
+alias rc="bundle exec rubocop"
+alias rcp="bundle exec rubocop --parallel"
+alias rctd="bundle exec rubocop --auto-gen-config"
+# ========================
+
 # エイリアス NeoVim関連
 alias vi="nvim"
 alias vim="nvim"
