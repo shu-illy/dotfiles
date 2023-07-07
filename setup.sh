@@ -2,17 +2,17 @@
 
 DOT_DIR="$HOME/dotfiles"
 
-
-# --- Homebrewがインストールされているか確認する ---
-if ! command -v brew &> /dev/null; then
+function install_homebrew_tools {
+  # --- Homebrewがインストールされているか確認する ---
+  if ! command -v brew &>/dev/null; then
     echo "Homebrewが見つかりません。Homebrewをインストールします..."
 
     # Xcode Command Line Toolsがインストールされているか確認する
-    if ! command -v xcode-select &> /dev/null; then
-        echo "Xcode Command Line Toolsが見つかりません。インストールします..."
-        xcode-select --install
-        echo "Xcode Command Line Toolsをインストールするためにターミナルを再起動してください。"
-        exit 1
+    if ! command -v xcode-select &>/dev/null; then
+      echo "Xcode Command Line Toolsが見つかりません。インストールします..."
+      xcode-select --install
+      echo "Xcode Command Line Toolsをインストールするためにターミナルを再起動してください。"
+      exit 1
     fi
 
     # Homebrewのインストールコマンドを実行する
@@ -20,63 +20,63 @@ if ! command -v brew &> /dev/null; then
 
     # インストールが成功したか確認する
     if [[ $? -eq 0 ]]; then
-        echo "Homebrewのインストールが完了しました。"
+      echo "Homebrewのインストールが完了しました。"
     else
-        echo "Homebrewのインストール中にエラーが発生しました。"
-        exit 1
+      echo "Homebrewのインストール中にエラーが発生しました。"
+      exit 1
     fi
-else
+  else
     echo "Homebrewが既にインストールされています。"
-fi
+  fi
 
-# --- rtxインストール ---
-if ! command -v rtx &> /dev/null; then
-    brew install rtx
-fi
+  brew bundle --file="$DOT_DIR/Homebrew/.Brewfile"
+}
 
-# --- starshipインストール ---
-if ! command -v starship &> /dev/null; then
-    echo "starshipをインストールします..."
-    brew install starship
-fi
-
-# --- Sheldonの導入・設定 ---
-if ! command -v sheldon &> /dev/null; then
-    echo "Sheldonをインストールします..."
-    brew install sheldon
-fi
-
-if [ ! -d "$HOME/.config" ]; then
+function link_dotfiles {
+  if [ ! -d "$HOME/.config" ]; then
     mkdir "$HOME/.config"
-fi
+  fi
 
-if [ ! -d "$HOME/.config/sheldon" ]; then
+  # --- Sheldonの設定 ---
+  if [ ! -d "$HOME/.config/sheldon" ]; then
     mkdir "$HOME/.config/sheldon"
-fi
+  fi
+  ln -fs "$DOT_DIR/.config/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 
-# if [ -f "$HOME/.config/sheldon/plugins.toml" ]; then
-#     rm "$HOME/.config/sheldon/plugins.toml"
-# fi
-echo "$DOT_DIR/.config/sheldon/plugins.toml -> $HOME/.config/sheldon/plugins.toml"
-ln -fs "$DOT_DIR/.config/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
+  # --- starship設定ファイルのシンボリックリンク作成 ---
+  ln -fs "$DOT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 
-# --- starship設定ファイルのシンボリックリンク作成 ---
-# if [ -f "$HOME/.config/starship.toml" ]; then
-#     rm "$HOME/.config/starship.toml"
-# fi
-echo "$DOT_DIR/.config/starship.toml -> $HOME/.config/starship.toml"
-ln -fs "$DOT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
-
-# --- dotfileのリンク作成 ---
-if [ ! -d "$HOME/.dotbackup" ]; then
+  # --- dotfileのリンク作成 ---
+  if [ ! -d "$HOME/.dotbackup" ]; then
     mkdir "$HOME/.dotbackup"
-fi
+  fi
 
-DOT_FILES=(.zshrc .gitconfig)
-for file in ${DOT_FILES[@]}
-do
+  DOT_FILES=(.zshrc .gitconfig)
+  for file in ${DOT_FILES[@]}; do
     if [ -f "$HOME/$file" ]; then
-        mv "$HOME/$file" ".dotbackup/$file"
+      mv "$HOME/$file" ".dotbackup/$file"
     fi
     ln -s $HOME/dotfiles/$file $HOME/$file
-done
+  done
+
+}
+
+echo "dotfiles for macOS
+
+SETUP MENU:
+  [a] Execute all
+  [i] Install tools
+  [l] Link dotfiles
+"
+read -r result
+echo ""
+
+if [[ "$result" == *"a"* ]] || [[ "$result" == *"i"* ]]; then
+  install_homebrew_tools
+fi
+
+if [[ "$result" == *"a"* ]] || [[ "$result" == *"l"* ]]; then
+  link_dotfiles
+fi
+
+echo "[ Finished! ]"
