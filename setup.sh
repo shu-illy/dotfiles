@@ -79,4 +79,6 @@ if [[ "$result" == *"a"* ]] || [[ "$result" == *"l"* ]]; then
   link_dotfiles
 fi
 
+source ~/.zshrc
+
 echo "[ Finished! ]"
