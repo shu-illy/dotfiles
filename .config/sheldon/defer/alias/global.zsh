@@ -15,8 +15,8 @@ alias drmv='docker volume prune'
 
 # === エイリアス git関連 ===
 alias g="git"
-alias gps="git push origin"
-alias gpsc='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ] && [ "$current_branch" != "develop" ] && git push origin "$current_branch"'
+alias gpso="git push origin"
+alias gps='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ] && [ "$current_branch" != "develop" ] && git push origin "$current_branch"'
 alias gpl="git pull origin"
 alias gplr="git pull --rebase --autostash origin"
 alias gco="git checkout"
