@@ -29,6 +29,7 @@ alias gD="git branch -D"
 alias gro="git rebase origin"
 alias gcp="git cherry-pick"
 alias glo="git log --oneline"
+alias gbcp="git branch --show-current | pbcopy" # 現在のブランチ名コピー
 # ========================
 
 # === エイリアス Rails関連 ===
