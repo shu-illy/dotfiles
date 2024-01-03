@@ -24,7 +24,7 @@ brew "ruby-build"
 brew "rbenv"
 brew "redis", restart_service: true
 brew "rename"
-brew "rtx"
+brew "mise"
 brew "tmux"
 brew "tree"
 brew "yarn"
