@@ -1,6 +1,3 @@
-# rtx設定
-eval "$(~/bin/rtx activate zsh)"
-
 # === エイリアス Docker関連 ===
 alias dc='docker-compose'
 alias d='docker'

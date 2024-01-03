@@ -20,8 +20,8 @@ shell = "zsh"
 [templates]
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
-[plugins.rtx]
-inline = 'eval "$(rtx activate zsh)"'
+[plugins.mise]
+inline = 'eval "$(mise activate zsh)"'
 
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
