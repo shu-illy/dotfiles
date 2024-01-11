@@ -32,6 +32,7 @@ alias glo="git log --oneline"
 alias gbcp="git branch --show-current | pbcopy" # 現在のブランチ名コピー
 alias gg="git grep"
 alias gr="greplace"
+alias -g B='git branch --all | grep -v HEAD | fzf -m | sed "s/.* //" | sed "s#remotes/[^/]*/##"'
 # ========================
 
 # === エイリアス Rails関連 ===
@@ -51,7 +52,18 @@ alias view="nvim -R"
 # エイリアス RubyMine関係
 alias rbm="rubymine"
 
+# git管理下のテキストを置換
+# greplace hoge fuga
 function greplace() {
   git grep -l $1 $3 | xargs sed -i -e "s/$1/$2/g"
   find . -name '*-e' | xargs rm
+}
+
+# pecoでbranchを選択して切り替え
+gs() {
+	if [ $# -eq 0 ]; then
+		git switch B
+	else
+		git switch "$@"
+	fi
 }
