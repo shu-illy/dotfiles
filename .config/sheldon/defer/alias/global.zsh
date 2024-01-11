@@ -30,6 +30,8 @@ alias gro="git rebase origin"
 alias gcp="git cherry-pick"
 alias glo="git log --oneline"
 alias gbcp="git branch --show-current | pbcopy" # 現在のブランチ名コピー
+alias gg="git grep"
+alias gr="greplace"
 # ========================
 
 # === エイリアス Rails関連 ===
@@ -48,3 +50,8 @@ alias view="nvim -R"
 
 # エイリアス RubyMine関係
 alias rbm="rubymine"
+
+function greplace() {
+  git grep -l $1 $3 | xargs sed -i -e "s/$1/$2/g"
+  find . -name '*-e' | xargs rm
+}
