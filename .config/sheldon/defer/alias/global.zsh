@@ -10,6 +10,8 @@ alias drmc='docker rm `docker ps -f "status=exited" -q`'
 alias drmi='docker image prune'
 # 未使用ボリューム一括削除
 alias drmv='docker volume prune'
+# railsコンテナが起動している場合のみ使用可
+alias dsh='docker-compose exec rails bash'
 # ==========================
 
 
