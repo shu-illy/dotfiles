@@ -57,6 +57,9 @@ alias view="nvim -R"
 # エイリアス RubyMine関係
 alias rbm="rubymine"
 
+# エイリアス Xcode関連
+alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
+
 # git管理下のテキストを置換
 # greplace hoge fuga
 function greplace() {

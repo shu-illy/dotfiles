@@ -29,7 +29,7 @@ function install_homebrew_tools {
     echo "Homebrewが既にインストールされています。"
   fi
 
-  brew bundle --file="$DOT_DIR/Homebrew/.Brewfile"
+  brew bundle --file="$DOT_DIR/Homebrew/Brewfile"
 }
 
 function link_dotfiles {

@@ -35,3 +35,6 @@ apply = ['source']
 local = "~/dotfiles/.config/sheldon/defer"
 use = ["{**/*.zsh}"]
 apply = ["defer"]
+
+[plugins.direnv]
+inline = 'eval "$(direnv hook zsh)"'
