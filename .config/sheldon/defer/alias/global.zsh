@@ -66,3 +66,9 @@ function greplace() {
   git grep -l $1 $3 | xargs sed -i -e "s/$1/$2/g"
   find . -name '*-e' | xargs rm
 }
+
+# colordiff
+# diffコマンドで差分がある場合、終了ステータスが0以外になるため、|| trueをつけている
+function df() {
+  colordiff "$@" || true;
+}
