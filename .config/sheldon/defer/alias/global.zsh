@@ -61,6 +61,9 @@ alias rbm="rubymine"
 # エイリアス Xcode関連
 alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
 
+# エイリアス yarn関連
+alias y="yarn"
+
 # git管理下のテキストを置換
 # greplace hoge fuga
 function greplace() {
