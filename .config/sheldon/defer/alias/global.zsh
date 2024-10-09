@@ -15,7 +15,6 @@ alias dcur='docker compose up rails'
 alias dcsh='docker compose exec rails bash'
 # ==========================
 
-
 # === エイリアス git関連 ===
 alias g="git"
 alias gpso="git push origin"
@@ -45,7 +44,7 @@ alias gsp='git switch `git branch | peco | sed -e "s/*//g"`'
 alias be="bundle exec"
 alias bi="bundle install"
 alias rs="bundle exec rspec"
-alias rc="bundle exec rubocop"
+alias rc="bundle exec rubocop --config .rubocop.yml"
 alias rcp="bundle exec rubocop --parallel"
 alias rctd="bundle exec rubocop --auto-gen-config"
 # ========================
@@ -74,5 +73,5 @@ function greplace() {
 # colordiff
 # diffコマンドで差分がある場合、終了ステータスが0以外になるため、|| trueをつけている
 function df() {
-  colordiff "$@" || true;
+  colordiff "$@" || true
 }
