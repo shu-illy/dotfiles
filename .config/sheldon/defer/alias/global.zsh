@@ -63,6 +63,9 @@ alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
 # エイリアス yarn関連
 alias y="yarn"
 
+# エイリアス その他
+alias c="cursor"
+
 # git管理下のテキストを置換
 # greplace hoge fuga
 function greplace() {
