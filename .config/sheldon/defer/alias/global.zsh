@@ -49,15 +49,12 @@ alias rcp="bundle exec rubocop --parallel"
 alias rctd="bundle exec rubocop --auto-gen-config"
 # ========================
 
-# エイリアス NeoVim関連
+# エイリアス エディタ関連
 alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
-
-# エイリアス RubyMine関係
 alias rbm="rubymine"
-
-# エイリアス Xcode関連
+alias cu="cursor"
 alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
 
 # エイリアス yarn関連
