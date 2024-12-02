@@ -78,3 +78,10 @@ function greplace() {
 function df() {
   colordiff "$@" || true
 }
+
+# bun completions
+[ -s "/Users/shuheiiriyama/.bun/_bun" ] && source "/Users/shuheiiriyama/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
