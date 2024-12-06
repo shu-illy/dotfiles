@@ -34,7 +34,7 @@ alias glo="git log --oneline"
 alias gbcp="git branch --show-current | pbcopy" # 現在のブランチ名コピー
 alias gg="git grep"
 alias gr="greplace"
-alias gsf="git branch -a | fzf | xargs git switch" # fzfで一覧表示したbranchを選択してcheckout
+alias gsf="git branch | fzf | xargs git switch" # fzfで一覧表示したbranchを選択してcheckout
 alias gsp='git switch `git branch | peco | sed -e "s/*//g"`'
 alias gca='git commit --amend'
 # ========================
