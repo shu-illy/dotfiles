@@ -74,11 +74,6 @@
     "command": "eslint.executeAutofix"
   },
   {
-    "key": "ctrl+/",
-    "command": "erb.toggleTags",
-    "when": "editorTextFocus && editorLangId == 'erb'"
-  },
-  {
     "key": "ctrl+shift+`",
     "command": "-erb.toggleTags",
     "when": "editorTextFocus && editorLangId == 'erb'"
@@ -218,5 +213,10 @@
   {
     "key": "shift+cmd+t",
     "command": "-workbench.action.reopenClosedEditor"
-  }
+  },
+  {
+    "key": "shift+cmd+,",
+    "command": "erb.toggleTags",
+    "when": "editorTextFocus && editorLangId == erb"
+  },
 ]
