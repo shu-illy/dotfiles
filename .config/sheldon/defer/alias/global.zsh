@@ -59,6 +59,7 @@ alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
 
 # エイリアス yarn関連
 alias y="yarn"
+alias yi="yarn install"
 
 # git管理下のテキストを置換
 # greplace hoge fuga
