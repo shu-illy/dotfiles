@@ -22,8 +22,6 @@ alias gps='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch
 alias gpsf='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ] && [ "$current_branch" != "develop" ] && git push origin -f "$current_branch"'
 alias gpl="git pull origin"
 alias gplr="git pull --rebase --autostash origin"
-alias gco="git checkout"
-alias gcb="git checkout -b"
 alias gs="git switch"
 alias gsc="git switch -c"
 alias gst="git stash"
@@ -36,7 +34,7 @@ alias glo="git log --oneline"
 alias gbcp="git branch --show-current | pbcopy" # 現在のブランチ名コピー
 alias gg="git grep"
 alias gr="greplace"
-alias gcf="git branch -a | fzf | xargs git checkout" # fzfで一覧表示したbranchを選択してcheckout
+alias gsf="git branch | fzf | xargs git switch" # fzfで一覧表示したbranchを選択してcheckout
 alias gsp='git switch `git branch | peco | sed -e "s/*//g"`'
 alias gca='git commit --amend'
 # ========================
