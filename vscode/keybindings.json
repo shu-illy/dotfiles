@@ -94,7 +94,7 @@
     "when": "!notebookEditorFocused && editorLangId == 'markdown'"
   },
   {
-    "key": "cmd+r cmd+r",
+    "key": "cmd+r cmd+l",
     "command": "extension.runLineOnRspec",
     "when": "editorLangId == 'ruby'"
   },

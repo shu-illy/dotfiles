@@ -37,6 +37,7 @@ alias gr="greplace"
 alias gsf="git branch | fzf | xargs git switch" # fzfで一覧表示したbranchを選択してcheckout
 alias gsp='git switch `git branch | peco | sed -e "s/*//g"`'
 alias gca='git commit --amend'
+alias lg='lazygit'
 # ========================
 
 # === エイリアス Rails関連 ===

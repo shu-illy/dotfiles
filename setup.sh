@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 DOT_DIR="$HOME/dotfiles"
+GHQ_ROOT="$(git config ghq.root)"
 
 function install_homebrew_tools {
   # --- Homebrewがインストールされているか確認する ---
@@ -51,13 +52,17 @@ function link_dotfiles {
     mkdir "$HOME/.dotbackup"
   fi
 
+  # --- .gitconfig, .zshrcのリンク作成 ---
   DOT_FILES=(.zshrc .gitconfig)
   for file in ${DOT_FILES[@]}; do
     if [ -f "$HOME/$file" ]; then
       mv "$HOME/$file" ".dotbackup/$file"
     fi
-    ln -s $HOME/dotfiles/$file $HOME/$file
+    ln -fs $DOT_DIR/$file $HOME/$file
   done
+
+  # git-cz用設定ファイルのリンク作成
+  eval ln -fs "$DOT_DIR/git/changelog.config.js" "$HOME/changelog.config.js"
 
 }
 
