@@ -219,4 +219,10 @@
     "command": "erb.toggleTags",
     "when": "editorTextFocus && editorLangId == erb"
   },
+  // YARDコメント
+  {
+    "key": "alt+cmd+enter",
+    "command": "-workbench.action.terminal.chat.insertCommand",
+    "when": "terminalChatResponseContainsCodeBlock && terminalHasBeenCreated && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks || terminalChatResponseContainsCodeBlock && terminalProcessSupported && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks"
+  },
 ]
