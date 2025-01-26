@@ -32,6 +32,20 @@
       "problemMatcher": []
     },
     {
+      "label": "Run RSpec(Request Spec)",
+      "type": "shell",
+      "command": "bundle exec rspec spec/requests/",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Run RSpec(System Spec)",
       "type": "shell",
       "command": "bundle exec rspec spec/system/",
