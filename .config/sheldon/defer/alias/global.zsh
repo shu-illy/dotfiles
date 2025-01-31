@@ -88,3 +88,9 @@ function r() {
     cd $(ghq root)/$src
   fi
 }
+
+# 通知音
+alias beep='afplay /System/Library/Sounds/Ping.aiff'
+
+# Xcode関連
+alias xclean='rm -rf ~/Library/Developer/Xcode/DerivedData' # 中間生成ファイル削除
