@@ -226,11 +226,7 @@
     "when": "terminalChatResponseContainsCodeBlock && terminalHasBeenCreated && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks || terminalChatResponseContainsCodeBlock && terminalProcessSupported && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks"
   },
   {
-    "key": "shift+cmd+l",
-    "command": "-aichat.insertselectionintochat"
-  },
-  {
-    "key": "shift+cmd+l",
+    "key": "shift+cmd+u",
     "command": "composer.openAsPane"
   },
 ]
