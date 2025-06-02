@@ -22,7 +22,7 @@ alias gps='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch
 alias gpsf='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ] && [ "$current_branch" != "develop" ] && git push origin -f "$current_branch"'
 alias gpl="git pull origin"
 alias gplr="git pull --rebase --autostash origin"
-alias gs="git switch"
+alias gsw="git switch"
 alias gsc="git switch -c"
 alias gst="git stash"
 alias gb="git branch"
