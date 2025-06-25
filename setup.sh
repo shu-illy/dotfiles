@@ -46,6 +46,9 @@ function link_dotfiles {
   # --- starship設定ファイルのシンボリックリンク作成 ---
   ln -fs "$DOT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 
+  # --- wezterm設定ファイルのシンボリックリンク作成 ---
+  ln -fs "$DOT_DIR/.config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+
   # --- dotfileのリンク作成 ---
   if [ ! -d "$HOME/.dotbackup" ]; then
     mkdir "$HOME/.dotbackup"
