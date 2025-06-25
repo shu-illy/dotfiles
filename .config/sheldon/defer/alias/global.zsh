@@ -38,6 +38,28 @@ alias gsf="git branch | fzf | xargs git switch" # fzfで一覧表示したbranch
 alias gsp='git switch `git branch | peco | sed -e "s/*//g"`'
 alias gca='git commit --amend'
 alias lg='lazygit'
+function gpm() {
+  # ホワイトリストに含めたいリポジトリ名（リモートURLの一部やディレクトリ名など）を配列で定義
+  local whitelist=("dotfiles")
+  # 現在のリポジトリのリモートURLを取得
+  local remote_url=$(git config --get remote.origin.url)
+  # フラグ
+  local is_whitelisted=false
+
+  for repo in "${whitelist[@]}"; do
+    if [[ "$remote_url" == *"$repo"* ]]; then
+      is_whitelisted=true
+      break
+    fi
+  done
+
+  if $is_whitelisted; then
+    git push origin main
+  else
+    echo "このリポジトリはホワイトリストに含まれていません"
+  fi
+}
+
 # ========================
 
 # === エイリアス Rails関連 ===
