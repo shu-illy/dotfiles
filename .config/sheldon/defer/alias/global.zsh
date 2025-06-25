@@ -1,3 +1,5 @@
+alias src='source ~/.zshrc'
+
 # === エイリアス Docker関連 ===
 alias dc='docker compose'
 alias d='docker'
@@ -40,7 +42,7 @@ alias gca='git commit --amend'
 alias lg='lazygit'
 function gpm() {
   # ホワイトリストに含めたいリポジトリ名（リモートURLの一部やディレクトリ名など）を配列で定義
-  local whitelist=("dotfiles")
+  local whitelist=("shu-illy/dotfiles")
   # 現在のリポジトリのリモートURLを取得
   local remote_url=$(git config --get remote.origin.url)
   # フラグ
