@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 return {
   font = wezterm.font_with_fallback {
-    'HackGenNerd',
+    'HackGen',
     'Cica',
     'JetBrains Mono',
     'Noto Sans Mono CJK JP',
@@ -19,4 +19,43 @@ return {
     bottom = 8,
   },
   adjust_window_size_when_changing_font_size = false,
+  initial_cols = 250,
+  initial_rows = 60,
+  keys = {
+    {
+      key = 't',
+      mods = 'CMD',
+      action = wezterm.action.SpawnTab 'CurrentPaneDomain',
+    },
+    {
+      key = 'd',
+      mods = 'CMD',
+      action = wezterm.action.SplitHorizontal({})
+    },
+    {
+      key = 'd',
+      mods = 'CMD|SHIFT',
+      action = wezterm.action.SplitVertical,
+    },
+    {
+      key = 'LeftArrow',
+      mods = 'CMD',
+      action = wezterm.action.SendKey{ key = 'Home' },
+    },
+    {
+      key = 'w',
+      mods = 'CMD',
+      action = wezterm.action.CloseCurrentPane{ confirm = true },
+    },
+    {
+      key = '[',
+      mods = 'CMD',
+      action = wezterm.action.ActivatePaneDirection('Prev'),
+    },
+    {
+      key = ']',
+      mods = 'CMD',
+      action = wezterm.action.ActivatePaneDirection('Next'),
+    },
+  },
 } 

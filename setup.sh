@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DOT_DIR="$HOME/dotfiles"
+DOT_DIR="$HOME/repositories/github.com/shu-illy/dotfiles"
 GHQ_ROOT="$(git config ghq.root)"
 
 function install_homebrew_tools {
@@ -48,6 +48,9 @@ function link_dotfiles {
   ln -fs "$DOT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
 
   # --- wezterm設定ファイルのシンボリックリンク作成 ---
+  if [ ! -d "$HOME/.config/wezterm" ]; then
+    mkdir -p "$HOME/.config/wezterm"
+  fi
   ln -fs "$DOT_DIR/.config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 
   # --- dotfileのリンク作成 ---
@@ -59,7 +62,7 @@ function link_dotfiles {
   DOT_FILES=(.zshrc .gitconfig)
   for file in ${DOT_FILES[@]}; do
     if [ -f "$HOME/$file" ]; then
-      mv "$HOME/$file" ".dotbackup/$file"
+      mv "$HOME/$file" "$HOME/.dotbackup/$file"
     fi
     ln -fs $DOT_DIR/$file $HOME/$file
   done
