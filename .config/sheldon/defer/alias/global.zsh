@@ -22,9 +22,7 @@ alias gps='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch
 alias gpsf='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ] && [ "$current_branch" != "develop" ] && git push origin -f "$current_branch"'
 alias gpl="git pull origin"
 alias gplr="git pull --rebase --autostash origin"
-alias gco="git checkout"
-alias gcb="git checkout -b"
-alias gs="git switch"
+alias gss="git switch"
 alias gsc="git switch -c"
 alias gst="git stash"
 alias gb="git branch"
@@ -36,8 +34,10 @@ alias glo="git log --oneline"
 alias gbcp="git branch --show-current | pbcopy" # 現在のブランチ名コピー
 alias gg="git grep"
 alias gr="greplace"
-alias gcf="git branch -a | fzf | xargs git checkout" # fzfで一覧表示したbranchを選択してcheckout
+alias gsf="git branch | fzf | xargs git switch" # fzfで一覧表示したbranchを選択してcheckout
 alias gsp='git switch `git branch | peco | sed -e "s/*//g"`'
+alias gca='git commit --amend'
+alias lg='lazygit'
 # ========================
 
 # === エイリアス Rails関連 ===
@@ -59,6 +59,7 @@ alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
 
 # エイリアス yarn関連
 alias y="yarn"
+alias yi="yarn install"
 
 # git管理下のテキストを置換
 # greplace hoge fuga
@@ -79,3 +80,47 @@ function df() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# ghq
+function r() {
+  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  if [ -n "$src" ]; then
+    cd $(ghq root)/$src
+  fi
+}
+# 新規リポジトリ作成してghq管理下に置く（引数でリポジトリ名指定）
+function ghq-new() {
+    local REPONAME=$1
+
+    if [ -z "$REPONAME" ]; then
+        echo 'Repository name must be specified.'
+        return
+    fi
+
+    local TMPDIR=/tmp/ghq_new
+    local TMPREPODIR=$TMPDIR/$REPONAME
+
+    mkdir -p $TMPREPODIR
+    cd $TMPREPODIR
+
+    git init
+    gh repo create $REPONAME --public --source=. --remote=origin
+
+    local REPOURL=$(git remote get-url origin)
+    local REPOPATH=$(echo $REPOURL | sed -e 's/^https:\/\///' -e 's/^git@//' -e 's/\.git$//' -e 's/github.com:/github.com\//')
+    local USER_REPO_NAME=$(echo $REPOPATH | sed -e 's/^github\.com\///')
+
+    ghq get $USER_REPO_NAME
+
+    cd $(ghq root)/$REPOPATH
+
+    rm -rf $TMPREPODIR
+}
+
+
+
+# 通知音
+alias beep='afplay /System/Library/Sounds/Ping.aiff'
+
+# Xcode関連
+alias xclean='rm -rf ~/Library/Developer/Xcode/DerivedData' # 中間生成ファイル削除

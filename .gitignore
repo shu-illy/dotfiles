@@ -1,2 +1,4 @@
 **/*/local.zsh
 Homebrew/.Brewfile.lock.json
+.dotbackup
+.DS_Store
