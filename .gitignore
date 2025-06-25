@@ -2,3 +2,5 @@
 Homebrew/.Brewfile.lock.json
 .dotbackup
 .DS_Store
+
+.config/wezterm/local.lua

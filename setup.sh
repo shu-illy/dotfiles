@@ -51,7 +51,9 @@ function link_dotfiles {
   if [ ! -d "$HOME/.config/wezterm" ]; then
     mkdir -p "$HOME/.config/wezterm"
   fi
-  ln -fs "$DOT_DIR/.config/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+  for file in "$DOT_DIR/.config/wezterm"/*; do
+    ln -fs "$file" "$HOME/.config/wezterm/$(basename "$file")"
+  done
 
   # --- dotfileのリンク作成 ---
   if [ ! -d "$HOME/.dotbackup" ]; then
