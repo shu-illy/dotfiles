@@ -1,4 +1,5 @@
 **/*/local.zsh
+.config/sheldon/defer/alias/local
 Homebrew/.Brewfile.lock.json
 .dotbackup
 .DS_Store
