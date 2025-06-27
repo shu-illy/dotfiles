@@ -33,7 +33,7 @@ apply = ['source']
 
 [plugins.dotfiles-defers]
 local = "~/repositories/github.com/shu-illy/dotfiles/.config/sheldon/defer"
-use = ["{**/*.zsh}"]
+use = ["**/*.zsh"]
 apply = ["defer"]
 
 [plugins.direnv]
