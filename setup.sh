@@ -55,6 +55,20 @@ function link_dotfiles {
     ln -fs "$file" "$HOME/.config/wezterm/$(basename "$file")"
   done
 
+  # --- VSCode / Cursorの設定ファイルのシンボリックリンク作成 ---
+  CODE_CONFIG_DIR="$HOME/Library/Application Support/Code/User/"
+  CURSOR_CONFIG_DIR="$HOME/Library/Application Support/Cursor/User/"
+  editor_config_dirs=("$CODE_CONFIG_DIR" "$CURSOR_CONFIG_DIR")
+
+  for config_dir in "${editor_config_dirs[@]}"; do
+    if [ ! -d $config_dir ]; then
+      mkdir -p $config_dir
+    fi
+    for file in "$DOT_DIR/.config/vscode"/*; do
+      ln -fs "$file" "$config_dir/$(basename "$file")"
+    done
+  done
+
   # --- dotfileのリンク作成 ---
   if [ ! -d "$HOME/.dotbackup" ]; then
     mkdir "$HOME/.dotbackup"

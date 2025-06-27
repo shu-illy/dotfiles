@@ -229,4 +229,93 @@
     "key": "shift+cmd+u",
     "command": "composer.openAsPane"
   },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "composer.cancelComposerStep",
+    "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
+  },
+  {
+    "key": "shift+cmd+backspace",
+    "command": "-composer.cancelComposerStep",
+    "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "editor.action.inlineDiffs.rejectAll",
+    "when": "editorTextFocus && @inlineDiffs.rejectAllEdits.isActiveEditorWithDiffs"
+  },
+  {
+    "key": "shift+cmd+backspace",
+    "command": "-editor.action.inlineDiffs.rejectAll",
+    "when": "editorTextFocus && @inlineDiffs.rejectAllEdits.isActiveEditorWithDiffs"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "editor.action.inlineDiffs.cancelPromptBar",
+    "when": "editorTextFocus && hasActivelyGeneratingPromptBarDiff"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "-editor.action.inlineDiffs.cancelPromptBar",
+    "when": "editorTextFocus && hasActivelyGeneratingPromptBarDiff"
+  },
+  {
+    "key": "cmd+backspace",
+    "command": "editor.action.inlineDiffs.cancelEdits",
+    "when": "editorTextFocus && hasActivelyGeneratingDiff"
+  },
+  {
+    "key": "shift+cmd+backspace",
+    "command": "-editor.action.inlineDiffs.cancelEdits",
+    "when": "editorTextFocus && hasActivelyGeneratingDiff"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-composer.sendToAgent",
+    "when": "editorHasPromptBar && editorPromptBarFocused"
+  },
+  {
+    "key": "alt+cmd+p",
+    "command": "-composer.openAddContextMenu",
+    "when": "composerFocused && !editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+o",
+    "command": "extension.liveServer.goOnline",
+    "when": "editorTextFocus && editorLangId == 'html'"
+  },
+  {
+    "key": "cmd+l cmd+o",
+    "command": "extension.liveServer.goOnline",
+    "when": "editorTextFocus && editorLangId == 'html'"
+  },
+  {
+    "key": "cmd+l cmd+o",
+    "command": "-extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "extension.liveServer.goOffline",
+    "when": "editorTextFocus && editorLangId == 'html'"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+l",
+    "command": "composer.createNewWithPrevContext",
+    "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-composer.createNewWithPrevContext",
+    "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
+  }
 ]

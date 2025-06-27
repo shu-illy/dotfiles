@@ -15,7 +15,8 @@
   "git.autofetch": true,
   "editor.tabSize": 2,
   "files.associations": {
-    "*.erb": "erb"
+    "*.erb": "erb",
+    "*.mdc": "markdown"
   },
   "emmet.includeLanguages": {
     "html.erb": "html"
@@ -56,7 +57,7 @@
     "editor.defaultFormatter": "svipas.prettier-plus"
   },
   "[sql]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.defaultFormatter": "mtxr.sqltools"
   },
   "files.autoSave": "off",
@@ -118,9 +119,6 @@
   "dart.runPubGetOnPubspecChanges": false,
   "security.workspace.trust.untrustedFiles": "open",
   "workbench.iconTheme": "vscode-icons",
-  "[json]": {
-    "editor.defaultFormatter": "svipas.prettier-plus"
-  },
   "[yaml]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
@@ -282,6 +280,7 @@
   "cSpell.userWords": [
     "bespo",
     "capturable",
+    "customlinks",
     "docomo",
     "Enumerize",
     "hashid",
