@@ -148,3 +148,12 @@ alias beep='afplay /System/Library/Sounds/Ping.aiff'
 
 # Xcode関連
 alias xclean='rm -rf ~/Library/Developer/Xcode/DerivedData' # 中間生成ファイル削除
+
+# ^rでコマンド履歴
+function fzf-select-history() {
+    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
