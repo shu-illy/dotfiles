@@ -53,7 +53,6 @@ return {
     local process_info = pane:get_foreground_process_info()
     if process_info then
       local cwd = process_info.cwd
-      -- TODO: cwdを / で分割した最後の要素を取得
       local dirs = split(cwd, '/')
       local current_dir = dirs[#dirs]
       title_cache[pane_id] = current_dir
@@ -78,7 +77,7 @@ return {
       cwd = "-"
     end
 
-    local title = " " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. " [ " .. cwd .. " ] "
+    local title = "  " .. cwd .. "  [ " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. " ]"
 
     return {
       { Background = { Color = edge_background } },

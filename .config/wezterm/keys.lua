@@ -4,7 +4,12 @@ return {
   {
     key = 't',
     mods = 'CMD',
-    action = wezterm.action.SpawnTab 'CurrentPaneDomain',
+    action = wezterm.action_callback(function(window, pane)
+      -- 新しいタブを作成
+      window:perform_action(wezterm.action.SpawnTab('CurrentPaneDomain'), pane)
+      -- タブタイトルの更新を強制
+      window:perform_action(wezterm.action.EmitEvent('update-status'), pane)
+    end),
   },
   {
     key = 'd',
