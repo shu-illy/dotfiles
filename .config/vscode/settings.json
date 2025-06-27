@@ -119,6 +119,9 @@
   "dart.runPubGetOnPubspecChanges": false,
   "security.workspace.trust.untrustedFiles": "open",
   "workbench.iconTheme": "vscode-icons",
+  "json": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[yaml]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
