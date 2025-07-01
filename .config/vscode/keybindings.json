@@ -79,11 +79,6 @@
     "when": "editorTextFocus && editorLangId == 'erb'"
   },
   {
-    "key": "cmd+p",
-    "command": "markdown.showPreview",
-    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
-  },
-  {
     "key": "cmd+ctrl+f",
     "command": "editor.action.formatDocument",
     "when": "editorLangId == 'ruby'"
@@ -317,5 +312,15 @@
     "key": "cmd+n",
     "command": "-composer.createNewWithPrevContext",
     "when": "composerFocused || focusedView =~ /^workbench.panel.aichat.view/"
+  },
+  {
+    "key": "cmd+m",
+    "command": "markdown.showPreviewToSide",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+k v",
+    "command": "-markdown.showPreviewToSide",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
   }
 ]
