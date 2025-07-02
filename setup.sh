@@ -90,6 +90,12 @@ function link_dotfiles {
   ln -fs "$DOT_DIR/.config/ai/.claude/settings.local.json" "$HOME/.claude/settings.local.json"
   ln -fs "$DOT_DIR/.config/ai/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 
+  # --- .config/ai/.gemini/設定ファイルのリンク作成 ---
+  if [ ! -d "$HOME/.gemini" ]; then
+    mkdir -p "$HOME/.gemini"
+  fi
+  ln -fs "$DOT_DIR/.config/ai/.gemini/settings.json" "$HOME/.gemini/settings.json"
+
   # git-cz用設定ファイルのリンク作成
   eval ln -fs "$DOT_DIR/git/changelog.config.js" "$HOME/changelog.config.js"
 
