@@ -43,6 +43,7 @@ function link_dotfiles {
     mkdir "$HOME/.config/sheldon"
   fi
   ln -fs "$DOT_DIR/.config/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
+  sheldon lock && sheldon source
 
   # --- starship設定ファイルのシンボリックリンク作成 ---
   ln -fs "$DOT_DIR/.config/starship.toml" "$HOME/.config/starship.toml"

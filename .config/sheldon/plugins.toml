@@ -52,3 +52,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 '''
+
+# 履歴に基づいた自動補完
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
