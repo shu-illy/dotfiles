@@ -6,6 +6,7 @@
       "Bash(find:*)",
       "Bash(grep:*)",
       "Bash(chmod:*)",
+      "Bash(gemini:*)",
       "Read(~/.zshrc)"
     ],
     "deny": [
