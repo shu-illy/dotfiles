@@ -88,7 +88,7 @@ function link_dotfiles {
   if [ ! -d "$HOME/.claude" ]; then
     mkdir -p "$HOME/.claude"
   fi
-  ln -fs "$DOT_DIR/.config/ai/.claude/settings.local.json" "$HOME/.claude/settings.local.json"
+  ln -fs "$DOT_DIR/.config/ai/.claude/settings.json" "$HOME/.claude/settings.json"
   ln -fs "$DOT_DIR/.config/ai/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 
   # --- .config/ai/.gemini/設定ファイルのリンク作成 ---

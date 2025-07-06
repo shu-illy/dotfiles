@@ -25,7 +25,6 @@
     ]
   },
   "env": {
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-    "OTEL_METRICS_EXPORTER": "otlp"
+    "MAX_THINKING_TOKENS": "63999"
   }
 }
