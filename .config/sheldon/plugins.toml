@@ -56,3 +56,7 @@ esac
 # 履歴に基づいた自動補完
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+
+[plugins.zsh-syntax-highlighting]
+github = 'zsh-users/zsh-syntax-highlighting'
+apply = ['defer']
