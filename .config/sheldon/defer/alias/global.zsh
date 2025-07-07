@@ -158,3 +158,5 @@ function fzf-select-history() {
 }
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
+
+alias claude="~/.claude/local/claude"
