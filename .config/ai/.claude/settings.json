@@ -23,8 +23,5 @@
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
     ]
-  },
-  "env": {
-    "MAX_THINKING_TOKENS": "63999"
   }
 }
