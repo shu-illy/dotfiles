@@ -45,6 +45,13 @@ return {
   adjust_window_size_when_changing_font_size = false,
   initial_cols = 250,
   initial_rows = 60,
+  
+  -- 非アクティブなpaneの明度を下げて、アクティブなpaneとの差をつける
+  inactive_pane_hsb = {
+    hue = 1.0,
+    saturation = 1.0,
+    brightness = 0.3,  -- 明度を70%に下げる
+  },
 
   wezterm.on('update-status', function(window, pane)
     -- カレントディレクトリをキャッシュする
