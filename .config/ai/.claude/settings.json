@@ -19,6 +19,7 @@
       "Bash(git remote set-url:*)",
       "Bash(git remote prune:*)",
       "Bash(git remote update:*)",
+      "Bash(rm:*)",
       "Bash(gh pr merge:*)",
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
