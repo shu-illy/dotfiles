@@ -41,4 +41,10 @@ return {
     mods = 'CMD',
     action = wezterm.action.ActivatePaneDirection('Next'),
   },
+  {
+    key = 'Enter',
+    mods = 'ALT',
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+  
 } 
