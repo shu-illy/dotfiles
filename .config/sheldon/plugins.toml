@@ -31,6 +31,11 @@ github = 'romkatv/zsh-defer'
 apply = ['source']
 
 
+[plugins.dotfiles-immediate]
+local = "~/repositories/github.com/shu-illy/dotfiles/.config/sheldon/immediate"
+use = ["**/*.zsh"]
+apply = ["source"]
+
 [plugins.dotfiles-defers]
 local = "~/repositories/github.com/shu-illy/dotfiles/.config/sheldon/defer"
 use = ["**/*.zsh"]
