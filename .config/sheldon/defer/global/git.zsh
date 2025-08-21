@@ -1,23 +1,5 @@
-alias src='source ~/.zshrc'
+# エイリアス git関連
 
-# === エイリアス Docker関連 ===
-alias dc='docker compose'
-alias d='docker'
-alias da='docker attach'
-alias dcb='dcoker compose build'
-alias dcu='docker compose up'
-# 停止コンテナ一括削除
-alias drmc='docker rm `docker ps -f "status=exited" -q`'
-# 未使用イメージ一括削除
-alias drmi='docker image prune'
-# 未使用ボリューム一括削除
-alias drmv='docker volume prune'
-alias dcur='docker compose up rails'
-# railsコンテナが起動している場合のみ使用可
-alias dcsh='docker compose exec rails bash'
-# ==========================
-
-# === エイリアス git関連 ===
 alias g="git"
 alias gpso="git push origin"
 alias gps='current_branch=$(git rev-parse --abbrev-ref HEAD); [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ] && [ "$current_branch" != "develop" ] && git push origin "$current_branch"'
@@ -63,29 +45,6 @@ function gpm() {
   fi
 }
 
-# ========================
-
-# === エイリアス Rails関連 ===
-alias be="bundle exec"
-alias bi="bundle install"
-alias rs="bundle exec rspec"
-alias rc="bundle exec rubocop --config .rubocop.yml"
-alias rcp="bundle exec rubocop --parallel"
-alias rctd="bundle exec rubocop --auto-gen-config"
-# ========================
-
-# エイリアス エディタ関連
-alias vi="nvim"
-alias vim="nvim"
-alias view="nvim -R"
-alias rbm="rubymine"
-alias cu="cursor"
-alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
-
-# エイリアス yarn関連
-alias y="yarn"
-alias yi="yarn install"
-
 # git管理下のテキストを置換
 # greplace hoge fuga
 function greplace() {
@@ -93,26 +52,14 @@ function greplace() {
   find . -name '*-e' | xargs rm
 }
 
-# colordiff
-# diffコマンドで差分がある場合、終了ステータスが0以外になるため、|| trueをつけている
-function df() {
-  colordiff "$@" || true
-}
-
-# bun completions
-[ -s "/Users/shuheiiriyama/.bun/_bun" ] && source "/Users/shuheiiriyama/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# ghq
+# ghqでリポジトリ一覧を表示
 function r() {
   local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
   if [ -n "$src" ]; then
     cd $(ghq root)/$src
   fi
 }
+
 # 新規リポジトリ作成してghq管理下に置く（引数でリポジトリ名指定）
 function ghq-new() {
     local REPONAME=$1
@@ -141,22 +88,3 @@ function ghq-new() {
 
     rm -rf $TMPREPODIR
 }
-
-
-
-# 通知音
-alias beep='afplay /System/Library/Sounds/Ping.aiff'
-
-# Xcode関連
-alias xclean='rm -rf ~/Library/Developer/Xcode/DerivedData' # 中間生成ファイル削除
-
-# ^rでコマンド履歴
-function fzf-select-history() {
-    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N fzf-select-history
-bindkey '^r' fzf-select-history
-
-alias claude="~/.claude/local/claude"
