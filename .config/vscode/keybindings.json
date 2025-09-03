@@ -78,6 +78,11 @@
     "when": "editorTextFocus && editorLangId == 'erb'"
   },
   {
+    "key": "shift+cmd+t",
+    "command": "extension.runOpenSpec",
+    "when": "editorLangId == 'ruby'"
+  },
+  {
     "key": "cmd+ctrl+f",
     "command": "editor.action.formatDocument",
     "when": "editorLangId == 'ruby'"
@@ -89,37 +94,21 @@
   },
   {
     "key": "cmd+r cmd+l",
-    "command": "extension.runLineOnRspec",
-    "when": "editorLangId == 'ruby'"
-  },
-  {
-    "key": "cmd+l",
-    "command": "-extension.runLineOnRspec",
-    "when": "editorLangId == 'ruby'"
-  },
-  {
-    "key": "shift+cmd+t",
-    "command": "extension.runOpenSpec",
-    "when": "editorLangId == 'ruby'"
-  },
-  {
-    "key": "alt+cmd+o",
-    "command": "-extension.runOpenSpec",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run RSpec(Current Line)",
     "when": "editorLangId == 'ruby'"
   },
   {
     "key": "cmd+r cmd+f",
-    "command": "extension.runFileOnRspec",
-    "when": "editorLangId == 'ruby'"
-  },
-  {
-    "key": "alt+cmd+l",
-    "command": "-extension.runFileOnRspec",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run RSpec(Current File)",
     "when": "editorLangId == 'ruby'"
   },
   {
     "key": "cmd+r cmd+a",
-    "command": "extension.runAllFilesOnRspec"
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run RSpec(All Spec)",
+    "when": "editorLangId == 'ruby'"
   },
   {
     "key": "cmd+r cmd+m",

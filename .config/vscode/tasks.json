@@ -1,61 +1,73 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run RSpec(Model Spec)",
+      "label": "Run RSpec(All Spec)",
       "type": "shell",
-      "command": "bundle exec rspec spec/models/",
+      "command": "bundle exec rspec --color",
       "group": {
         "kind": "test",
         "isDefault": true
       },
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run RSpec(Model Spec)",
+      "type": "shell",
+      "command": "bundle exec rspec --color spec/models/",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
       },
       "problemMatcher": []
     },
     {
       "label": "Run RSpec(GraphQL Spec)",
       "type": "shell",
-      "command": "bundle exec rspec spec/graphql/",
+      "command": "bundle exec rspec --color spec/graphql/",
       "group": {
         "kind": "test",
         "isDefault": true
       },
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared"
       },
       "problemMatcher": []
     },
     {
       "label": "Run RSpec(Request Spec)",
       "type": "shell",
-      "command": "bundle exec rspec spec/requests/",
+      "command": "bundle exec rspec --color spec/requests/",
       "group": {
         "kind": "test",
         "isDefault": true
       },
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared"
       },
       "problemMatcher": []
     },
     {
       "label": "Run RSpec(System Spec)",
       "type": "shell",
-      "command": "bundle exec rspec spec/system/",
+      "command": "bundle exec rspec --color spec/system/",
       "group": {
         "kind": "test",
         "isDefault": true
       },
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared"
       },
       "problemMatcher": []
     },
@@ -69,9 +81,60 @@
       },
       "presentation": {
         "reveal": "always",
-        "panel": "new"
+        "panel": "shared"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "Run RSpec(Current File)",
+      "type": "shell",
+      "command": "bundle exec rspec --color ${file}",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Run RSpec(Current Directory)",
+      "type": "shell",
+      "command": "bundle exec rspec --color ${fileDirname}",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Run RSpec(Current Line)",
+      "type": "shell",
+      "command": "bundle exec rspec --color ${file}:${lineNumber}",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
     }
   ]
 }
