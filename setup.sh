@@ -96,6 +96,12 @@ function link_dotfiles {
   fi
   ln -fs "$DOT_DIR/.config/ai/.claude/commands" "$HOME/.claude/commands"
 
+  # --- .config/ai/.codex/設定ファイルのリンク作成 ---
+  if [ ! -d "$HOME/.codex" ]; then
+    mkdir -p "$HOME/.codex"
+  fi
+  ln -fs "$DOT_DIR/.config/ai/.codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
+
   # --- .config/ai/.gemini/設定ファイルのリンク作成 ---
   if [ ! -d "$HOME/.gemini" ]; then
     mkdir -p "$HOME/.gemini"
