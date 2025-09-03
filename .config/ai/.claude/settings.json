@@ -7,7 +7,14 @@
       "Bash(grep:*)",
       "Bash(chmod:*)",
       "Bash(gemini:*)",
-      "Read(~/.zshrc)"
+      "Bash(bundle exec rubocop:*)",
+      "Bash(bundle exec rspec:*)",
+      "Bash(./bin/rspec:*)",
+      "Bash(./bin/rubocop:*)",
+      "Read(~/.zshrc)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)"
     ],
     "deny": [
       "Bash(git remote add:*)",
