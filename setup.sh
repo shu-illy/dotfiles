@@ -95,6 +95,10 @@ function link_dotfiles {
     rm -rf "$HOME/.claude/commands"
   fi
   ln -fs "$DOT_DIR/.config/ai/.claude/commands" "$HOME/.claude/commands"
+  if [ -e "$HOME/.claude/agents" ]; then
+    rm -rf "$HOME/.claude/agents"
+  fi
+  ln -fs "$DOT_DIR/.config/ai/.claude/agents" "$HOME/.claude/agents"
 
   # --- .config/ai/.codex/設定ファイルのリンク作成 ---
   if [ ! -d "$HOME/.codex" ]; then
