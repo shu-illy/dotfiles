@@ -1,6 +1,6 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "biome.requireConfigFile": true,
+  "biome.requireConfiguration": true,
   "sshfs.configs": [
     {
       "host": "192.168.10.115",
@@ -105,9 +105,6 @@
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -138,7 +135,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "dart.flutterSdkPaths": [
-    "/Users/shilly/.asdf/installs/flutter/2.5.1-stable"
+    "/Users/shilly/.local/share/mise/installs/flutter/3.24.3-stable/bin/flutter"
   ],
   "settingsSync.ignoredSettings": [
     "-dart.flutterSdkPaths"
@@ -313,5 +310,7 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker",
     "editor.formatOnSave": false
   },
-  "update.releaseTrack": "prerelease"
+  "update.releaseTrack": "prerelease",
+  "makefile.configureOnOpen": false,
+  "github.copilot.nextEditSuggestions.enabled": true
 }
