@@ -1,6 +1,8 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "biome.requireConfiguration": true,
+  "editor.fontFamily": "Monaco, 'Courier New', monospace, 'Apple Color Emoji'",
+  "biome.requireConfigFile": true,
   "sshfs.configs": [
     {
       "host": "192.168.10.115",
@@ -98,7 +100,7 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "liveServer.settings.donotShowInfoMsg": true,
   "editor.formatOnPaste": false,
-  // "editor.formatOnSave": true,
+  "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "todo-tree.highlights.highlightDelay": 100,
   "prettier.embeddedLanguageFormatting": "off",
