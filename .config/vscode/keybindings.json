@@ -311,12 +311,12 @@
     "when": "!notebookEditorFocused && editorLangId == 'markdown'"
   },
   {
-    "key": "cmd+[Semicolon]",
-    "command": "claude-code.runClaude"
-  },
-  {
     "key": "alt+cmd+[Semicolon]",
     "command": "claude-code.insertAtMentioned",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+[Semicolon]",
+    "command": "claude-vscode.sidebar.open"
   }
 ]
