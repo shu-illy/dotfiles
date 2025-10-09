@@ -14,7 +14,19 @@
       "Read(~/.zshrc)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
-      "Bash(gh pr diff:*)"
+      "Bash(gh pr diff:*)",
+      "Bash(rails c:*)",
+      "Bash(rails console:*)",
+      "Bash(rspec:*)",
+      "Bash(rubocop:*)",
+      "Bash(bundle exec rspec:*)",
+      "Bash(bundle exec rubocop:*)",
+      "Bash(./bin/rspec:*)",
+      "Bash(./bin/rubocop:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git status:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [
       "Bash(git remote add:*)",
