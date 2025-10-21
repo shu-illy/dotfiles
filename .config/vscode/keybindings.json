@@ -311,12 +311,24 @@
     "when": "!notebookEditorFocused && editorLangId == 'markdown'"
   },
   {
+    "key": "cmd+[Semicolon]",
+    "command": "claude-vscode.editor.open"
+  },
+  {
     "key": "alt+cmd+[Semicolon]",
-    "command": "claude-code.insertAtMentioned",
+    "command": "claude-vscode.insertAtMention",
     "when": "editorTextFocus"
   },
   {
-    "key": "cmd+[Semicolon]",
-    "command": "claude-vscode.sidebar.open"
+    "key": "cmd+[Quote]",
+    "command": "chatgpt.sidebarView.focus"
+  },
+  {
+    "key": "alt+cmd+[Quote]",
+    "command": "chatgpt.addToChat"
+  },
+  {
+    "key": "alt+cmd+[Quote]",
+    "command": "chatgpt.addToThread"
   }
 ]

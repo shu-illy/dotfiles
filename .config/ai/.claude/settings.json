@@ -26,7 +26,9 @@
       "Bash(git log:*)",
       "Bash(git diff:*)",
       "Bash(git status:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(yarn tsc:*)"
     ],
     "deny": [
       "Bash(git remote add:*)",
