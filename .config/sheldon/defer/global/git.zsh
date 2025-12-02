@@ -23,6 +23,7 @@ alias gsp='git switch `git branch | fzf | sed -e "s/*//g"`'
 alias gca='git commit --amend'
 alias lg='lazygit'
 alias gpmf='git push origin main'
+alias gda='git branch | grep -v -E "^\*|main|develop" | xargs -r git branch -D' # 現在のブランチ、mainブランチ、developブランチ以外を全削除
 function gpm() {
   # ホワイトリストに含めたいリポジトリ名（リモートURLの一部やディレクトリ名など）を配列で定義
   local whitelist=("shu-illy/dotfiles")
