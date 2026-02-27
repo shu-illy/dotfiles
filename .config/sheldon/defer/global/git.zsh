@@ -39,8 +39,21 @@ function gwa() {
   local repo_name=$(basename $(git rev-parse --show-toplevel))
   local branch_name="iri/${name}"
   local worktree_path="../wt_${repo_name}_${name}"
+  local original_dir=$(pwd)
 
   git worktree add "$worktree_path" -b "$branch_name"
+  
+  # .envrc と .env ファイルがあればコピー
+  if [ -f "$original_dir/.envrc" ]; then
+    cp "$original_dir/.envrc" "$worktree_path/.envrc"
+    echo "Copied .envrc to worktree"
+  fi
+  
+  if [ -f "$original_dir/.env" ]; then
+    cp "$original_dir/.env" "$worktree_path/.env"
+    echo "Copied .env to worktree"
+  fi
+  
   cd "$worktree_path"
 }
 
