@@ -24,6 +24,48 @@ alias gca='git commit --amend'
 alias lg='lazygit'
 alias gpmf='git push origin main'
 alias gda='git branch | grep -v -E "^\*|main|develop" | xargs -r git branch -D' # 現在のブランチ、mainブランチ、developブランチ以外を全削除
+
+# git worktree addのラッパー関数
+# 使い方: gwa <directory_name>
+# 例: gwa feature-auth → ../ に feature-auth ディレクトリを作成し、iri/feature-auth ブランチで worktree を追加
+function gwa() {
+  local name=$1
+
+  if [ -z "$name" ]; then
+    echo "Usage: gwa <directory_name>"
+    return 1
+  fi
+
+  local repo_name=$(basename $(git rev-parse --show-toplevel))
+  local branch_name="iri/${name}"
+  local worktree_path="../wt_${repo_name}_${name}"
+
+  git worktree add "$worktree_path" -b "$branch_name"
+  cd "$worktree_path"
+}
+
+# git worktree removeのラッパー関数
+# 使い方: gwr <directory_name>
+# 例: gwr feature-auth → ../wt_{repo}_feature-auth を削除し、iri/feature-auth ブランチも削除
+function gwr() {
+  local name=$1
+
+  if [ -z "$name" ]; then
+    echo "Usage: gwr <directory_name>"
+    return 1
+  fi
+
+  local repo_name=$(basename $(git rev-parse --show-toplevel))
+  local branch_name="iri/${name}"
+  local worktree_path="../wt_${repo_name}_${name}"
+
+  # worktree を削除
+  git worktree remove "$worktree_path"
+
+  # ブランチも削除
+  git branch -D "$branch_name"
+}
+
 function gpm() {
   # ホワイトリストに含めたいリポジトリ名（リモートURLの一部やディレクトリ名など）を配列で定義
   local whitelist=("shu-illy/dotfiles")
