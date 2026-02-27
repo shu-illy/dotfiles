@@ -55,6 +55,8 @@ function gwa() {
   fi
   
   cd "$worktree_path"
+  yarn install
+  bundle install
 }
 
 # git worktree removeのラッパー関数
