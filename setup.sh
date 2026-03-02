@@ -56,6 +56,12 @@ function link_dotfiles {
     ln -fs "$file" "$HOME/.config/wezterm/$(basename "$file")"
   done
 
+  # --- mise設定ファイルのシンボリックリンク作成 ---
+  if [ ! -d "$HOME/.mise" ]; then
+    mkdir -p "$HOME/.mise"
+  fi
+  ln -fs "$DOT_DIR/.config/mise/config.toml" "$HOME/.config/.mise/config.toml"
+
   # --- VSCode / Cursorの設定ファイルのシンボリックリンク作成 ---
   CODE_CONFIG_DIR="$HOME/Library/Application Support/Code/User/"
   CURSOR_CONFIG_DIR="$HOME/Library/Application Support/Cursor/User/"
