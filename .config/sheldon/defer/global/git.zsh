@@ -46,6 +46,7 @@ function gwa() {
   # .envrc と .env ファイルがあればコピー
   if [ -f "$original_dir/.envrc" ]; then
     cp "$original_dir/.envrc" "$worktree_path/.envrc"
+    direnv allow
     echo "Copied .envrc to worktree"
   fi
   
