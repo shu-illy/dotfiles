@@ -21,7 +21,10 @@ shell = "zsh"
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
 [plugins.mise]
-inline = 'eval "$(mise activate zsh)"'
+inline = '''
+eval "$(mise activate zsh)"
+eval "$(mise activate zsh --shims)"
+'''
 
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
