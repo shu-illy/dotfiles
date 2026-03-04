@@ -46,7 +46,6 @@ function gwa() {
   # .envrc と .env ファイルがあればコピー
   if [ -f "$original_dir/.envrc" ]; then
     cp "$original_dir/.envrc" "$worktree_path/.envrc"
-    direnv allow
     echo "Copied .envrc to worktree"
   fi
   
@@ -56,6 +55,12 @@ function gwa() {
   fi
   
   cd "$worktree_path"
+  
+  # .envrcがコピーされた場合はdirenv allowを実行
+  if [ -f ".envrc" ]; then
+    direnv allow
+    echo "Executed 'direnv allow' for .envrc"
+  fi
   yarn install
   bundle install
 }
