@@ -53,6 +53,11 @@ function gwa() {
     cp "$original_dir/.env" "$worktree_path/.env"
     echo "Copied .env to worktree"
   fi
+
+  if [ -f "$original_dir/.env.development.local" ]; then
+    cp "$original_dir/.env.development.local" "$worktree_path/.env.development.local"
+    echo "Copied .env.development.local to worktree"
+  fi
   
   cd "$worktree_path"
   
