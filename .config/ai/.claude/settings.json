@@ -47,5 +47,8 @@
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
     ]
+  },
+  "enabledPlugins": {
+    "ruby-lsp@claude-plugins-official": true
   }
 }

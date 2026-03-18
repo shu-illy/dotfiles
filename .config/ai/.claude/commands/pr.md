@@ -59,6 +59,10 @@ gitmoji を prefix に入れてタイトルを生成：
 
 - GitHub CLI を使用して PR を作成
 
+### 7. asigneeの追加
+
+- 作成したPRのasigneeに`shu-illy`を設定
+
 ## 使用例
 
 ```bash
