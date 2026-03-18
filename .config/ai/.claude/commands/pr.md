@@ -53,7 +53,7 @@ gitmoji を prefix に入れてタイトルを生成：
 - 各セクションに適切な内容を記入
 - IMPORTANT: PR の description に、Claude Code により作成された PR が分かる表記を入れる
 - YOU MUST: PULL_REQUEST_TEMPLATE.md ファイルに `<!-- I want to review in Japanese. -->` などのコメントが含まれる場合、それも PR の description に含めるようにすること
-- IMPORTANT: PRの内容を漏れなく伝えることよりも、PRの意図が伝わりやすく、読みやすいように要点をまとめることを重視すること。
+- IMPORTANT: 怠惰な人間が読むことを前提として、PRの内容を漏れなく伝えることよりも、PRの意図が伝わりやすく、読みやすいように要点をまとめることを重視すること。
 
 ### 6. PR の作成
 
