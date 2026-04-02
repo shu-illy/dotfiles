@@ -1,3 +1,14 @@
+---
+name: commit
+description: git で Staged（ステージ済み）の変更を確認して、それに対するコミットメッセージを考えてください。
+disable-model-invocation: true
+---
+
+## ステージ済みの変更内容
+
+- Staged diff: !`git diff --cached`
+- Staged files: !`git diff --cached --name-only`
+
 git で Staged（ステージ済み）の変更を確認して、それに対するコミットメッセージを考えてください。
 
 【要件】
@@ -9,5 +20,4 @@ git で Staged（ステージ済み）の変更を確認して、それに対す
 - 複数ファイルにわたる変更がある場合、代表的な内容にフォーカスしてください。
 - Git の慣習として自然で、チームに共有しやすいメッセージにしてください。
 
-【ステージ済みの変更内容】
-（※ここに `git diff --cached` の出力や要約を貼り付けてください）
+コミットメッセージを提案した後、承認を得てから `git commit` を実行してください。
