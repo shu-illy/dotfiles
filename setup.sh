@@ -101,6 +101,13 @@ function link_dotfiles {
     rm -rf "$HOME/.claude/commands"
   fi
   ln -fs "$DOT_DIR/.config/ai/.claude/commands" "$HOME/.claude/commands"
+
+  if [ -e "$HOME/.claude/skills" ]; then
+    rm -rf "$HOME/.claude/skills"
+  fi
+  ln -fs "$DOT_DIR/.config/ai/.claude/skills" "$HOME/.claude/skills"
+
+  # --- .config/ai/.claude/agents/設定ファイルのリンク作成 ---
   if [ -e "$HOME/.claude/agents" ]; then
     rm -rf "$HOME/.claude/agents"
   fi
