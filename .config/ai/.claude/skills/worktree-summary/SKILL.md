@@ -1,7 +1,7 @@
 ---
 name: worktree-summary
 description: アクティブな git worktree の一覧と作業概要を収集し、Slack に通知する。複数の worktree を並行して進めている際に、各 worktree の状況を一目で把握するために使う。
-allowed-tools: Bash(git *) Bash(curl *) Read Grep Glob
+allowed-tools: Bash(git *) Bash(gh *) Bash(curl *) Bash(echo *) Read Grep Glob
 user-invocable: true
 argument-hint: ""
 ---
@@ -26,6 +26,7 @@ git worktree list
 - **最新コミット 3 件**: `git -C <path> log --oneline -3 --format="%h %s" --no-decorate`
 - **未コミット変更の有無**: `git -C <path> status --short` の出力行数
 - **ブランチの作業概要**: 最新コミットメッセージから推測し、1 行で要約
+- **関連 PR**: `gh pr list --head <branch-name> --json number,title,url,state --limit 1` で該当ブランチの PR を取得。PR が存在する場合はタイトルと URL を含める
 
 ### 3. サマリーの作成
 
@@ -39,6 +40,7 @@ Git Worktree サマリー (YYYY-MM-DD HH:MM)
   パス: /path/to/worktree
   概要: XXXの機能実装
   状態: 未コミット変更 3 件
+  PR: #123 PRタイトル (OPEN) - https://github.com/org/repo/pull/123
   最新コミット:
     - abc1234 コミットメッセージ1
     - def5678 コミットメッセージ2
@@ -97,7 +99,7 @@ curl -X POST "$SLACK_WEBHOOK_URL" \
       "type": "section",
       "text": {
         "type": "mrkdwn",
-        "text": "*`branch-name`*\n概要: 作業内容の要約\n状態: :large_green_circle: クリーン / :large_orange_circle: 未コミット変更 N 件\n```\nabc1234 コミットメッセージ\ndef5678 コミットメッセージ\n```"
+        "text": "*`branch-name`*\n概要: 作業内容の要約\n状態: :large_green_circle: クリーン / :large_orange_circle: 未コミット変更 N 件\nPR: <https://github.com/org/repo/pull/123|#123 PRタイトル> (:large_green_circle: OPEN)\n```\nabc1234 コミットメッセージ\ndef5678 コミットメッセージ\n```"
       }
     }
   ]
@@ -110,3 +112,5 @@ curl -X POST "$SLACK_WEBHOOK_URL" \
 - main/master ブランチの worktree も含める
 - コミットメッセージが長い場合は 50 文字で切り詰める
 - Slack Webhook のレスポンスが "ok" 以外の場合はエラーを報告する
+- PR が存在しないブランチ (main 含む) では PR 行を省略する
+- PR の state に応じて絵文字を使い分ける: OPEN → `:large_green_circle:`, MERGED → `:large_purple_circle:`, CLOSED → `:large_red_circle:`
