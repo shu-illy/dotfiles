@@ -1,7 +1,15 @@
 ---
 name: worktree-summary
 description: アクティブな git worktree の一覧と作業概要を収集し、Slack に通知する。複数の worktree を並行して進めている際に、各 worktree の状況を一目で把握するために使う。
-allowed-tools: Bash(git *) Bash(gh *) Bash(curl *) Bash(echo *) Read Grep Glob
+allowed-tools: 
+  - Bash(git *)
+  - Bash(gh *)
+  - Bash(curl *)
+  - Bash(echo *)
+  - Bash(cat *)
+  - Read
+  - Grep
+  - Glob
 user-invocable: true
 argument-hint: ""
 ---
