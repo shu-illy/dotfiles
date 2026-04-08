@@ -2,6 +2,16 @@
 name: pr
 description: PR 作成カスタムコマンド。現在のブランチの変更内容を基に GitHub プルリクエストを作成します。引数にブランチ名を渡すとそのブランチをベースブランチとして使用します。
 disable-model-invocation: true
+allowed-tools:
+  - Bash(git branch:*)
+  - Bash(git status:*)
+  - Bash(git diff:*)
+  - Bash(git log:*)
+  - Bash(git push:*)
+  - Bash(git rev-parse:*)
+  - Bash(gh pr create:*)
+  - Bash(gh pr edit:*)
+  - Read
 ---
 
 ## 現在のブランチ情報
