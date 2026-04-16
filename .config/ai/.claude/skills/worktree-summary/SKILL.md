@@ -7,9 +7,13 @@ allowed-tools:
   - Bash(curl *)
   - Bash(echo *)
   - Bash(cat *)
+  - Bash(date *)
+  - Bash(ls *)
+  - Bash(for *)
   - Read
   - Grep
   - Glob
+  - Write
 user-invocable: true
 argument-hint: ""
 ---
@@ -113,6 +117,10 @@ curl -X POST "$SLACK_WEBHOOK_URL" \
   ]
 }
 ```
+
+### 6. 許可コマンドの追加
+
+手順5までで実行したコマンドについて、ユーザーに許可を求めたものは、次回以降許可なしで実行できるように、このファイル（`~/repositories/github.com/shu-illy/dotfiles/.config/ai/.claude/skills/worktree-summary/SKILL.md`）のallowed-toolsを更新する
 
 ## 注意事項
 
