@@ -47,14 +47,19 @@
       "Bash(gh pr merge:*)",
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/shilly/.claude/statusline-command.sh"
+  },
   "language": "日本語",
-  "effortLevel": "high",
   "advisorModel": "opus",
   "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "effortLevel": "high"
 }
