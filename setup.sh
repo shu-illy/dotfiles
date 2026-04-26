@@ -30,7 +30,79 @@ function install_homebrew_tools {
     echo "Homebrewが既にインストールされています。"
   fi
 
-  brew bundle --file="$DOT_DIR/Homebrew/Brewfile"
+  # brew bundle の標準出力が BREW_BUNDLE_IDLE_SEC 秒以上途切れたら打ち切る（0 または未設定のときは監視なし）
+  if [[ -n "${BREW_BUNDLE_IDLE_SEC}" ]] && (( BREW_BUNDLE_IDLE_SEC > 0 )); then
+    echo "brew bundle: 出力が ${BREW_BUNDLE_IDLE_SEC} 秒以上止まったら打ち切ります（BREW_BUNDLE_IDLE_SEC）"
+    run_with_output_idle_timeout "${BREW_BUNDLE_IDLE_SEC}" brew bundle --file="$DOT_DIR/Homebrew/Brewfile" || {
+      local ec=$?
+      if (( ec == 124 )); then
+        echo "brew bundle が出力アイドルで終了しました。ネットやリポの応答待ちの長い作業中は、BREW_BUNDLE_IDLE_SEC を大きくするか一時的に unexport して再実行してください。" >&2
+      fi
+      return $ec
+    }
+  else
+    brew bundle --file="$DOT_DIR/Homebrew/Brewfile"
+  fi
+}
+
+# 標準出力（stderr は stdout に合流）が idle_sec 秒以上読めなければ子を kill
+function run_with_output_idle_timeout {
+  local idle_sec="$1"
+  shift
+  if ! command -v python3 &>/dev/null; then
+    echo "python3 がないため、出力アイドル監視をスキップしてそのまま実行します。"
+    "$@"
+    return
+  fi
+  python3 -c '
+import os, select, sys, subprocess
+idle = float(sys.argv[1])
+cmd = sys.argv[2:]
+p = subprocess.Popen(
+    cmd,
+    stdout=subprocess.PIPE,
+    stderr=subprocess.STDOUT,
+    bufsize=0,
+    env=os.environ,
+    text=True,
+)
+if not p.stdout:
+    sys.exit(1)
+try:
+    while True:
+        if p.poll() is not None:
+            rest = p.stdout.read() or ""
+            if rest:
+                sys.stdout.write(rest)
+                sys.stdout.flush()
+            rc = p.returncode
+            if rc is None:
+                p.wait()
+                rc = p.returncode
+            sys.exit(rc if rc is not None else 1)
+        r, _, _ = select.select([p.stdout], [], [], idle)
+        if r:
+            chunk = p.stdout.read(4096)
+            if not chunk:
+                break
+            sys.stdout.write(chunk)
+            sys.stdout.flush()
+        else:
+            p.kill()
+            p.wait()
+            print(
+                "\n[timeout] 子プロセスの標準出力が %d 秒以上途切れました。"
+                % int(idle),
+                file=sys.stderr,
+            )
+            sys.exit(124)
+    p.wait()
+    sys.exit(p.returncode if p.returncode is not None else 0)
+except KeyboardInterrupt:
+    p.kill()
+    p.wait()
+    sys.exit(130)
+' "$idle_sec" "$@"
 }
 
 function link_dotfiles {
