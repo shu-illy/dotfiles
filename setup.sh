@@ -95,6 +95,7 @@ function link_dotfiles {
     mkdir -p "$HOME/.claude"
   fi
   ln -fs "$DOT_DIR/.config/ai/.claude/settings.json" "$HOME/.claude/settings.json"
+  ln -fs "$DOT_DIR/.config/ai/.claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
   ln -fs "$DOT_DIR/.config/ai/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
   # 既存のファイルやディレクトリを削除してからシンボリックリンクを作成
   if [ -e "$HOME/.claude/commands" ]; then
