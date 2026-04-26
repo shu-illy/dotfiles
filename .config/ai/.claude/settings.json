@@ -49,9 +49,12 @@
       "Bash(gh project delete:*)"
     ]
   },
-  "model": "opus[1m]",
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high"
+  "language": "日本語",
+  "effortLevel": "high",
+  "advisorModel": "opus",
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true
 }
