@@ -30,7 +30,8 @@
       "Bash(git pull:*)",
       "Bash(git rev-parse:*)",
       "Bash(git add:*)",
-      "Bash(yarn tsc:*)"
+      "Bash(yarn tsc:*)",
+      "Bash(echo:*)"
     ],
     "deny": [
       "Bash(git remote add:*)",
@@ -49,6 +50,7 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "opus[1m]",
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
   },
@@ -59,5 +61,6 @@
   "language": "日本語",
   "advisorModel": "opus",
   "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "effortLevel": "high"
 }
