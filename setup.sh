@@ -192,6 +192,12 @@ function link_dotfiles {
   fi
   ln -fs "$DOT_DIR/.config/cmux/settings.jsonc" "$HOME/.config/cmux/settings.json"
 
+  # --- tmux設定ファイルのシンボリックリンク作成 ---
+  if [ ! -d "$HOME/.config/tmux" ]; then
+    mkdir -p "$HOME/.config/tmux"
+  fi
+  ln -fs "$DOT_DIR/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
+
   # --- .config/ai/.codex/設定ファイルのリンク作成 ---
   if [ ! -d "$HOME/.codex" ]; then
     mkdir -p "$HOME/.codex"
