@@ -186,6 +186,12 @@ function link_dotfiles {
   fi
   ln -fs "$DOT_DIR/.config/ai/.claude/agents" "$HOME/.claude/agents"
 
+  # --- cmux設定ファイルのシンボリックリンク作成 ---
+  if [ ! -d "$HOME/.config/cmux" ]; then
+    mkdir -p "$HOME/.config/cmux"
+  fi
+  ln -fs "$DOT_DIR/.config/cmux/settings.jsonc" "$HOME/.config/cmux/settings.json"
+
   # --- .config/ai/.codex/設定ファイルのリンク作成 ---
   if [ ! -d "$HOME/.codex" ]; then
     mkdir -p "$HOME/.codex"
