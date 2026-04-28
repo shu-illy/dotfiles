@@ -50,16 +50,17 @@
     ],
     "defaultMode": "plan"
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/shilly/.claude/statusline-command.sh"
-  },
   "language": "日本語",
+  "effortLevel": "high",
   "advisorModel": "opus",
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
-  "effortLevel": "high"
+  "skipAutoPermissionPrompt": true
 }
