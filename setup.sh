@@ -129,10 +129,10 @@ function link_dotfiles {
   done
 
   # --- mise設定ファイルのシンボリックリンク作成 ---
-  if [ ! -d "$HOME/.mise" ]; then
-    mkdir -p "$HOME/.mise"
+  if [ ! -d "$HOME/.config/mise" ]; then
+    mkdir -p "$HOME/.config/mise"
   fi
-  ln -fs "$DOT_DIR/.config/mise/config.toml" "$HOME/.config/.mise/config.toml"
+  ln -fs "$DOT_DIR/.config/mise/config.toml" "$HOME/.config/mise/config.toml"
 
   # --- VSCode / Cursorの設定ファイルのシンボリックリンク作成 ---
   CODE_CONFIG_DIR="$HOME/Library/Application Support/Code/User/"
@@ -215,6 +215,28 @@ function link_dotfiles {
 
 }
 
+function setup_tmux_plugins {
+  TPM_DIR="$HOME/.config/tmux/plugins/tpm"
+  THUMBS_DIR="$HOME/.config/tmux/plugins/tmux-thumbs"
+
+  # tpm 未導入なら clone
+  if [ ! -d "$TPM_DIR" ]; then
+    mkdir -p "$HOME/.config/tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+  fi
+
+  # mise で宣言済みの toolchain（rust など）をインストール
+  /opt/homebrew/bin/mise install
+
+  # tmux.conf に書かれた @plugin をすべて install
+  "$TPM_DIR/bin/install_plugins"
+
+  # tmux-thumbs バイナリのビルド（mise 経由で cargo を解決）
+  if [ -d "$THUMBS_DIR" ]; then
+    (cd "$THUMBS_DIR" && /opt/homebrew/bin/mise exec -- cargo build --release)
+  fi
+}
+
 echo "dotfiles for macOS
 
 SETUP MENU:
@@ -231,6 +253,10 @@ fi
 
 if [[ "$result" == *"a"* ]] || [[ "$result" == *"l"* ]]; then
   link_dotfiles
+fi
+
+if [[ "$result" == *"a"* ]]; then
+  setup_tmux_plugins
 fi
 
 source ~/.zshrc
