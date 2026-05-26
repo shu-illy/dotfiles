@@ -9,10 +9,6 @@
   },
   {
     "key": "cmd+n",
-    "command": "workbench.action.files.newUntitledFile"
-  },
-  {
-    "key": "cmd+n",
     "command": "explorer.newFile",
     "when": "explorerViewletFocus"
   },
@@ -330,5 +326,10 @@
   {
     "key": "alt+cmd+[Quote]",
     "command": "chatgpt.addToThread"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "-extension.runFileOnRspec",
+    "when": "editorLangId == 'ruby'"
   }
 ]
