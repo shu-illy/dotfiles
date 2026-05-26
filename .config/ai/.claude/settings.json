@@ -4,6 +4,9 @@
       "Bash(npm run lint)",
       "Bash(npm run test:*)",
       "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(cd:*)",
       "Bash(grep:*)",
       "Bash(chmod:*)",
       "Bash(gemini:*)",
@@ -15,6 +18,7 @@
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
+      "Bash(gh issue view:*)",
       "Bash(gh api:*)",
       "Bash(rails c:*)",
       "Bash(rails console:*)",
@@ -55,7 +59,17 @@
     "command": "bash $HOME/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "ruby-lsp@claude-plugins-official": true
+    "ruby-lsp@claude-plugins-official": true,
+    "codex@openai-codex": true,
+    "figma@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
   },
   "language": "日本語",
   "effortLevel": "high",
