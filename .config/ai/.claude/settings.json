@@ -1,4 +1,17 @@
 {
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/hooks/pr-assignee.sh"
+          }
+        ]
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "Bash(npm run lint)",
@@ -61,7 +74,8 @@
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
     "codex@openai-codex": true,
-    "figma@claude-plugins-official": true
+    "figma@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
   },
   "extraKnownMarketplaces": {
     "openai-codex": {

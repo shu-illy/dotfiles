@@ -1,318 +1,291 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "biome.requireConfiguration": true,
-  "editor.fontFamily": "Monaco, 'Courier New', monospace, 'Apple Color Emoji'",
-  "biome.requireConfigFile": true,
-  "sshfs.configs": [
-    {
-      "host": "192.168.10.115",
-      "name": "RaspberryPi",
-      "password": "9mltmfny",
-      "port": 8080,
-      "privateKeyPath": "/Users/shilly/.ssh/id_rsa",
-      "root": "/",
-      "username": "pi"
-    }
-  ],
-  "git.autofetch": true,
-  "editor.tabSize": 2,
-  "files.associations": {
-    "*.erb": "erb",
-    "*.mdc": "markdown"
-  },
-  "emmet.includeLanguages": {
-    "html.erb": "html"
-  },
-  "emmet.triggerExpansionOnTab": true,
-  "key": "cmd+shift+`",
-  "command": "erb.toggleTags",
-  "when": "editorTextFocus && editorLangId == erb",
-  "[html]": {
-    "editor.insertSpaces": true,
-    "editor.suggest.insertMode": "replace",
-    "gitlens.codeLens.scopes": [
-      "document"
-    ],
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[python]": {
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.suggest.insertMode": "replace",
-    "gitlens.codeLens.scopes": [
-      "document"
-    ]
-  },
-  "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
-    "editor.formatOnSave": true
-  },
-  "rubyLsp.rubyVersionManager": {
-    "identifier": "mise",
-    "miseExecutablePath": "/opt/homebrew/bin/mise"
-  },
-  "rubyLsp.formatter": "auto",
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "svipas.prettier-plus"
-  },
-  "[sql]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": "mtxr.sqltools"
-  },
-  "files.autoSave": "off",
-  "files.eol": "\n",
-  "files.autoGuessEncoding": true,
-  "beautify.language": {
-    "js": {
-      "type": [
-        "javascript",
-        "json"
-      ],
-      "filename": [
-        ".jshintrc",
-        ".jsbeautifyrc",
-        "json"
-      ]
-    },
-    "css": [
-      "css",
-      "scss"
-    ],
-    "html": [
-      "htm",
-      "html",
-      ".html.erb"
-    ]
-  },
-  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7ZGZkO2VyO2F3czNcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltcIkZGRkY5OVwiLFwiMDAwMDAwXCIsXCJCM0IzQjNcIixcIkZGRkZGRlwiLFwiRkZDQ0NDXCIsXCI0RDRENERcIixcIjk5RkZDQ1wiLFwiQ0NGRkNDXCIsXCJFNkZGQ0NcIixcIjk5RkZGRlwiXSxcImZvcm1hdFdpZHRoXCI6XCIyNDBcIixcImNyZWF0ZVRhcmdldFwiOmZhbHNlLFwicGFnZUZvcm1hdFwiOntcInhcIjowLFwieVwiOjAsXCJ3aWR0aFwiOjg1MCxcImhlaWdodFwiOjExMDB9LFwic2VhcmNoXCI6dHJ1ZSxcInNob3dTdGFydFNjcmVlblwiOnRydWUsXCJncmlkQ29sb3JcIjpcIiNkMGQwZDBcIixcImRhcmtHcmlkQ29sb3JcIjpcIiM2ZTZlNmVcIixcImF1dG9zYXZlXCI6dHJ1ZSxcInJlc2l6ZUltYWdlc1wiOm51bGwsXCJvcGVuQ291bnRlclwiOjAsXCJ2ZXJzaW9uXCI6MTgsXCJ1bml0XCI6MSxcImlzUnVsZXJPblwiOmZhbHNlLFwidWlcIjpcIlwifSJ9",
-  "todo.colors.comment": "#00ffff",
-  "indentRainbow.ignoreErrorLanguages": [
-    "ruby",
-    "markdown",
-    "erb"
-  ],
-  "diffEditor.ignoreTrimWhitespace": false,
-  "git.suggestSmartCommit": false,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "liveServer.settings.donotShowInfoMsg": true,
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "todo-tree.highlights.highlightDelay": 100,
-  "prettier.embeddedLanguageFormatting": "off",
-  "[dart]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.selectionHighlight": false,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "off"
-  },
-  "dart.debugExternalPackageLibraries": true,
-  "dart.debugSdkLibraries": false,
-  "dart.runPubGetOnPubspecChanges": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "workbench.iconTheme": "vscode-icons",
-  "json": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[yaml]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": "advanced",
-    "editor.formatOnSave": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.quickSuggestions": {
-      "other": true,
-      "comments": false,
-      "strings": true
-    }
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "dart.flutterSdkPaths": [
-    "/Users/shilly/.local/share/mise/installs/flutter/3.24.3-stable/bin/flutter"
-  ],
-  "settingsSync.ignoredSettings": [
-    "-dart.flutterSdkPaths"
-  ],
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[erb]": {
-    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
-  },
-  "prettier.useEditorConfig": false,
-  "gitmoji.showEmojiCode": true,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "githubPullRequests.pullBranch": "never",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "gitmoji.addCustomEmoji": [
-    {
-      "emoji": "🚧",
-      "code": ":construction:",
-      "description": "wip"
-    },
-    {
-      "emoji": "✨",
-      "code": ":sparkles:",
-      "description": "Introduce new features"
-    },
-    {
-      "emoji": "➕",
-      "code": ":heavy_plus_sign:",
-      "description": "Add a dependency"
-    },
-    {
-      "emoji": "🔧",
-      "code": ":wrench:",
-      "description": ""
-    },
-    {
-      "emoji": "💡",
-      "code": ":bulb:",
-      "description": "Add or update comments in source code."
-    },
-    {
-      "emoji": "🏗️",
-      "code": ":building_construction:",
-      "description": "architecture change"
-    },
-    {
-      "emoji": "🩹",
-      "code": ":adhesive_bandage:",
-      "description": "Simple fix for a non-critical issue."
-    },
-    {
-      "emoji": "👔",
-      "code": ":necktie:",
-      "description": "business logic"
-    },
-    {
-      "emoji": "🧑‍💻",
-      "code": ":technologist:",
-      "description": "Improve DX(developer experience)"
-    },
-    {
-      "emoji": "♻️",
-      "code": ":recycle:",
-      "description": "refactor"
-    },
-    {
-      "emoji": "✅",
-      "code": ":white_check_mark:",
-      "description": "Add, update, or pass tests."
-    },
-    {
-      "emoji": "➕",
-      "code": ":heavy_plus_sign:",
-      "description": "Add a dependency(library, package)"
-    },
-    {
-      "emoji": "✏️",
-      "code": ":pencil2:",
-      "description": "Fix typos."
-    },
-    {
-      "emoji": "🚨",
-      "code": ":rotating_light:",
-      "description": "Fix compiler / linter warnings."
-    },
-    {
-      "emoji": "🗃️",
-      "code": ":card_file_box:",
-      "description": "Perform database related changes."
-    },
-    {
-      "emoji": "🧱",
-      "code": "::bricks::",
-      "description": "Infrastructure related changes."
-    }
-  ],
-  "gitTreeCompare.diffMode": "merge",
-  "security.promptForLocalFileProtocolHandling": false,
-  "github.copilot.editor.enableAutoCompletions": true,
-  "vsicons.dontShowNewVersionMessage": true,
-  "search.followSymlinks": false,
-  "files.useExperimentalFileWatcher": true,
-  "files.exclude": {
-    "/.git": true,
-    "/.DS_Store": true,
-    "/node_modules": true,
-    "/node_modules/": true,
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  },
-  "search.exclude": {
-    "/node_modules": true
-  },
-  "files.watcherExclude": {
-    "**/node_modules/**": true,
-    "**/node_modules/*/**": false,
-    "**/public/**": true,
-    "**/tmp/**": true
-  },
-  "cursor.chat.smoothStreaming": true,
-  "workbench.activityBar.orientation": "vertical",
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "workbench.colorTheme": "Spinel",
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[dotenv]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "cSpell.userWords": [
-    "bespo",
-    "capturable",
-    "customlinks",
-    "docomo",
-    "Enumerize",
-    "hashid",
-    "inet",
-    "norutoku",
-    "paypay",
-    "Phonelib",
-    "plpgsql",
-    "polylines",
-    "postgis",
-    "qmove",
-    "rakuraku",
-    "ryde",
-    "shuheiiriyama",
-    "srid",
-    "taggings",
-    "targetable",
-    "tsrange"
-  ],
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[dockerfile]": {
-    "editor.quickSuggestions": {
-      "strings": true
-    },
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
-    "editor.formatOnSave": false
-  },
-  "update.releaseTrack": "prerelease",
-  "makefile.configureOnOpen": false,
-  "github.copilot.nextEditSuggestions.enabled": true
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"biome.requireConfiguration": true,
+	"editor.fontFamily": "Monaco, 'Courier New', monospace, 'Apple Color Emoji'",
+	"git.autofetch": true,
+	"editor.tabSize": 2,
+	"files.associations": {
+		"*.erb": "erb",
+		"*.mdc": "markdown",
+		"*.md": "markdown"
+	},
+	"emmet.includeLanguages": {
+		"html.erb": "html"
+	},
+	"emmet.triggerExpansionOnTab": true,
+	"[html]": {
+		"editor.insertSpaces": true,
+		"editor.suggest.insertMode": "replace",
+		"gitlens.codeLens.scopes": ["document"],
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[python]": {
+		"editor.tabSize": 4,
+		"editor.insertSpaces": true,
+		"editor.suggest.insertMode": "replace",
+		"gitlens.codeLens.scopes": ["document"]
+	},
+	"[ruby]": {
+		"editor.defaultFormatter": "Shopify.ruby-lsp",
+		"editor.formatOnSave": true
+	},
+	"rubyLsp.rubyVersionManager": {
+		"identifier": "mise",
+		"miseExecutablePath": "/opt/homebrew/bin/mise"
+	},
+	"rubyLsp.formatter": "auto",
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[css]": {
+		"editor.defaultFormatter": "svipas.prettier-plus"
+	},
+	"[sql]": {
+		"editor.formatOnSave": false,
+		"editor.defaultFormatter": "mtxr.sqltools"
+	},
+	"files.autoSave": "off",
+	"files.eol": "\n",
+	"files.autoGuessEncoding": true,
+	"indentRainbow.ignoreErrorLanguages": ["ruby", "markdown", "erb"],
+	"diffEditor.ignoreTrimWhitespace": false,
+	"git.suggestSmartCommit": false,
+	"editor.suggestSelection": "first",
+	"liveServer.settings.donotShowInfoMsg": true,
+	"editor.formatOnPaste": false,
+	"editor.formatOnSave": false,
+	"editor.formatOnType": true,
+	"prettier.embeddedLanguageFormatting": "off",
+	"[dart]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.selectionHighlight": false,
+		"editor.suggest.snippetsPreventQuickSuggestions": false,
+		"editor.suggestSelection": "first",
+		"editor.tabCompletion": "onlySnippets",
+		"editor.wordBasedSuggestions": "off"
+	},
+	"security.workspace.trust.untrustedFiles": "open",
+	"workbench.iconTheme": "vscode-icons",
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "advanced",
+		"editor.formatOnSave": true,
+		"diffEditor.ignoreTrimWhitespace": false,
+		"editor.quickSuggestions": {
+			"other": true,
+			"comments": false,
+			"strings": true
+		}
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"dart.flutterSdkPaths": [
+		"/Users/shilly/.local/share/mise/installs/flutter/3.24.3-stable/bin/flutter"
+	],
+	"settingsSync.ignoredSettings": ["-dart.flutterSdkPaths"],
+	"markdown.marp.exportAutoOpen": true,
+	"markdown.marp.exportType": "pdf",
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	},
+	"[erb]": {
+		"editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+	},
+	"prettier.useEditorConfig": false,
+	"gitmoji.showEmojiCode": true,
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.formatOnSave": true
+	},
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"gitmoji.addCustomEmoji": [
+		{
+			"emoji": "🚧",
+			"code": ":construction:",
+			"description": "wip"
+		},
+		{
+			"emoji": "✨",
+			"code": ":sparkles:",
+			"description": "Introduce new features"
+		},
+		{
+			"emoji": "➕",
+			"code": ":heavy_plus_sign:",
+			"description": "Add a dependency"
+		},
+		{
+			"emoji": "🔧",
+			"code": ":wrench:",
+			"description": ""
+		},
+		{
+			"emoji": "💡",
+			"code": ":bulb:",
+			"description": "Add or update comments in source code."
+		},
+		{
+			"emoji": "🏗️",
+			"code": ":building_construction:",
+			"description": "architecture change"
+		},
+		{
+			"emoji": "🩹",
+			"code": ":adhesive_bandage:",
+			"description": "Simple fix for a non-critical issue."
+		},
+		{
+			"emoji": "👔",
+			"code": ":necktie:",
+			"description": "business logic"
+		},
+		{
+			"emoji": "🧑‍💻",
+			"code": ":technologist:",
+			"description": "Improve DX(developer experience)"
+		},
+		{
+			"emoji": "♻️",
+			"code": ":recycle:",
+			"description": "refactor"
+		},
+		{
+			"emoji": "✅",
+			"code": ":white_check_mark:",
+			"description": "Add, update, or pass tests."
+		},
+		{
+			"emoji": "➕",
+			"code": ":heavy_plus_sign:",
+			"description": "Add a dependency(library, package)"
+		},
+		{
+			"emoji": "✏️",
+			"code": ":pencil2:",
+			"description": "Fix typos."
+		},
+		{
+			"emoji": "🚨",
+			"code": ":rotating_light:",
+			"description": "Fix compiler / linter warnings."
+		},
+		{
+			"emoji": "🗃️",
+			"code": ":card_file_box:",
+			"description": "Perform database related changes."
+		},
+		{
+			"emoji": "🧱",
+			"code": "::bricks::",
+			"description": "Infrastructure related changes."
+		}
+	],
+	"gitTreeCompare.diffMode": "merge",
+	"security.promptForLocalFileProtocolHandling": false,
+	"vsicons.dontShowNewVersionMessage": true,
+	"search.followSymlinks": false,
+	"files.exclude": {
+		"/.git": true,
+		"/.DS_Store": true,
+		"/node_modules": true,
+		"/node_modules/": true,
+		"**/.classpath": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.factorypath": true
+	},
+	"search.exclude": {
+		"/node_modules": true
+	},
+	"files.watcherExclude": {
+		"**/node_modules/**": true,
+		"**/node_modules/*/**": false,
+		"**/public/**": true,
+		"**/tmp/**": true
+	},
+	"workbench.activityBar.orientation": "vertical",
+	"[shellscript]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"workbench.colorTheme": "Spinel",
+	"[ignore]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[dotenv]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"cSpell.userWords": [
+		"bespo",
+		"capturable",
+		"customlinks",
+		"docomo",
+		"Enumerize",
+		"hashid",
+		"inet",
+		"norutoku",
+		"paypay",
+		"Phonelib",
+		"plpgsql",
+		"polylines",
+		"postgis",
+		"qmove",
+		"rakuraku",
+		"ryde",
+		"shuheiiriyama",
+		"srid",
+		"taggings",
+		"targetable",
+		"tsrange"
+	],
+	"[properties]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[dockerfile]": {
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+		"editor.defaultFormatter": "ms-azuretools.vscode-docker",
+		"editor.formatOnSave": false
+	},
+	"update.releaseTrack": "prerelease",
+	"[dockercompose]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "advanced",
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"[github-actions-workflow]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"workbench.editorAssociations": {
+		"*.svg": "default"
+	},
+	"[mermaid.sequenceDiagram]": {
+		"editor.formatOnSave": false
+	},
+	"gitlens.ai.model": "gitkraken",
+	"gitlens.ai.gitkraken.model": "gemini:gemini-2.5-flash",
+	"claudeCode.preferredLocation": "panel",
+	"json.schemaDownload.trustedDomains": {
+		"https://schemastore.azurewebsites.net/": true,
+		"https://raw.githubusercontent.com/microsoft/vscode/": true,
+		"https://raw.githubusercontent.com/devcontainers/spec/": true,
+		"https://www.schemastore.org/": true,
+		"https://json.schemastore.org/": true,
+		"https://json-schema.org/": true,
+		"https://developer.microsoft.com/json-schemas/": true,
+		"https://biomejs.dev": true
+	},
+	"window.autoDetectColorScheme": false,
 }
