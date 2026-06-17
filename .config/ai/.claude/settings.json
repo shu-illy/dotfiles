@@ -28,6 +28,7 @@
       "Bash(./bin/rspec:*)",
       "Bash(./bin/rubocop:*)",
       "Read(~/.zshrc)",
+      "Read(*.md)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
@@ -75,7 +76,7 @@
     "ruby-lsp@claude-plugins-official": true,
     "codex@openai-codex": true,
     "figma@claude-plugins-official": true,
-    "claude-code-setup@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
