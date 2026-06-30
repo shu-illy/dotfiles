@@ -1,19 +1,7 @@
 {
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/pr-assignee.sh"
-          }
-        ]
-      }
-    ]
-  },
   "permissions": {
     "allow": [
+      "Read(**/*.md)",
       "Bash(npm run lint)",
       "Bash(npm run test:*)",
       "Bash(find:*)",
@@ -63,6 +51,20 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "sonnet[1m]",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/hooks/pr-assignee.sh"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.claude/statusline-command.sh"
@@ -70,7 +72,8 @@
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
-    "codex@openai-codex": true
+    "codex@openai-codex": true,
+    "slack@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -85,5 +88,6 @@
   "advisorModel": "opus",
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }

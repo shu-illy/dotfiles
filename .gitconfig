@@ -32,6 +32,7 @@
 [core]
 	pager = cat
 	autocrlf = input
+	hooksPath = ~/.config/git/hooks
 [credential "https://github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
