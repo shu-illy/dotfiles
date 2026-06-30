@@ -1,5 +1,4 @@
 [tools]
-python = "3.12.0"
 node = "22.16.0"
 ruby = "3.3.5"
 rust = "stable"
