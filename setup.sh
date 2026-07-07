@@ -192,6 +192,15 @@ function link_dotfiles {
   fi
   ln -fs "$DOT_DIR/.config/ai/.claude/hooks" "$HOME/.claude/hooks"
 
+  # --- .config/git/hooks/設定ファイルのリンク作成 ---
+  if [ ! -d "$HOME/.config/git" ]; then
+    mkdir -p "$HOME/.config/git"
+  fi
+  if [ -e "$HOME/.config/git/hooks" ]; then
+    rm -rf "$HOME/.config/git/hooks"
+  fi
+  ln -fs "$DOT_DIR/.config/git/hooks" "$HOME/.config/git/hooks"
+
   # --- cmux設定ファイルのシンボリックリンク作成 ---
   if [ ! -d "$HOME/.config/cmux" ]; then
     mkdir -p "$HOME/.config/cmux"
@@ -203,6 +212,13 @@ function link_dotfiles {
     mkdir -p "$HOME/.config/tmux"
   fi
   ln -fs "$DOT_DIR/.config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
+
+  # --- Zed設定ファイルのシンボリックリンク作成 ---
+  if [ ! -d "$HOME/.config/zed" ]; then
+    mkdir -p "$HOME/.config/zed"
+  fi
+  ln -fs "$DOT_DIR/.config/zed/settings.json" "$HOME/.config/zed/settings.json"
+  ln -fs "$DOT_DIR/.config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 
   # --- .config/ai/.codex/設定ファイルのリンク作成 ---
   if [ ! -d "$HOME/.codex" ]; then

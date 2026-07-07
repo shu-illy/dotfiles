@@ -1,96 +1,98 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(npm run lint)",
-      "Bash(npm run test:*)",
-      "Bash(find:*)",
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(cd:*)",
-      "Bash(grep:*)",
-      "Bash(chmod:*)",
-      "Bash(gemini:*)",
-      "Bash(bundle exec rubocop:*)",
-      "Bash(bundle exec rspec:*)",
-      "Bash(./bin/rspec:*)",
-      "Bash(./bin/rubocop:*)",
-      "Read(~/.zshrc)",
-      "Read(*.md)",
-      "Bash(gh pr list:*)",
-      "Bash(gh pr view:*)",
-      "Bash(gh pr diff:*)",
-      "Bash(gh issue view:*)",
-      "Bash(gh api:*)",
-      "Bash(rails c:*)",
-      "Bash(rails console:*)",
-      "Bash(rspec:*)",
-      "Bash(rubocop:*)",
-      "Bash(bundle exec rspec:*)",
-      "Bash(bundle exec rubocop:*)",
-      "Bash(./bin/rspec:*)",
-      "Bash(./bin/rubocop:*)",
-      "Bash(git log:*)",
-      "Bash(git diff:*)",
-      "Bash(git status:*)",
-      "Bash(git pull:*)",
-      "Bash(git rev-parse:*)",
-      "Bash(git add:*)",
-      "Bash(yarn tsc:*)",
-      "Bash(echo:*)"
-    ],
-    "deny": [
-      "Bash(git remote add:*)",
-      "Bash(git remote rename:*)",
-      "Bash(git remote remove:*)",
-      "Bash(git remote rm:*)",
-      "Bash(git remote set-head:*)",
-      "Bash(git remote set-branches:*)",
-      "Bash(git remote set-url:*)",
-      "Bash(git remote prune:*)",
-      "Bash(git remote update:*)",
-      "Bash(rm -rf:*)",
-      "Bash(gh pr merge:*)",
-      "Bash(gh project create:*)",
-      "Bash(gh project delete:*)"
-    ],
-    "defaultMode": "plan"
-  },
-  "model": "claude-opus-4-6",
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/pr-assignee.sh"
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash $HOME/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "ruby-lsp@claude-plugins-official": true,
-    "codex@openai-codex": true,
-    "figma@claude-plugins-official": true,
-    "claude-code-setup@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "openai-codex": {
-      "source": {
-        "source": "github",
-        "repo": "openai/codex-plugin-cc"
-      }
-    }
-  },
-  "language": "日本語",
-  "effortLevel": "high",
-  "advisorModel": "opus",
-  "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+	"permissions": {
+		"allow": [
+			"Read(**/*.md)",
+			"Bash(npm run lint)",
+			"Bash(npm run test:*)",
+			"Bash(find:*)",
+			"Bash(ls:*)",
+			"Bash(cat:*)",
+			"Bash(cd:*)",
+			"Bash(grep:*)",
+			"Bash(chmod:*)",
+			"Bash(gemini:*)",
+			"Bash(bundle exec rubocop:*)",
+			"Bash(bundle exec rspec:*)",
+			"Bash(./bin/rspec:*)",
+			"Bash(./bin/rubocop:*)",
+			"Read(~/.zshrc)",
+			"Bash(gh pr list:*)",
+			"Bash(gh pr view:*)",
+			"Bash(gh pr diff:*)",
+			"Bash(gh issue view:*)",
+			"Bash(gh api:*)",
+			"Bash(rails c:*)",
+			"Bash(rails console:*)",
+			"Bash(rspec:*)",
+			"Bash(rubocop:*)",
+			"Bash(bundle exec rspec:*)",
+			"Bash(bundle exec rubocop:*)",
+			"Bash(./bin/rspec:*)",
+			"Bash(./bin/rubocop:*)",
+			"Bash(git log:*)",
+			"Bash(git diff:*)",
+			"Bash(git status:*)",
+			"Bash(git pull:*)",
+			"Bash(git rev-parse:*)",
+			"Bash(git add:*)",
+			"Bash(yarn tsc:*)",
+			"Bash(echo:*)"
+		],
+		"deny": [
+			"Bash(git remote add:*)",
+			"Bash(git remote rename:*)",
+			"Bash(git remote remove:*)",
+			"Bash(git remote rm:*)",
+			"Bash(git remote set-head:*)",
+			"Bash(git remote set-branches:*)",
+			"Bash(git remote set-url:*)",
+			"Bash(git remote prune:*)",
+			"Bash(git remote update:*)",
+			"Bash(rm -rf:*)",
+			"Bash(gh pr merge:*)",
+			"Bash(gh project create:*)",
+			"Bash(gh project delete:*)"
+		],
+		"defaultMode": "plan"
+	},
+	"model": "sonnet[1m]",
+	"hooks": {
+		"PostToolUse": [
+			{
+				"matcher": "Bash",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "bash $HOME/.claude/hooks/pr-assignee.sh"
+					}
+				]
+			}
+		]
+	},
+	"statusLine": {
+		"type": "command",
+		"command": "bash $HOME/.claude/statusline-command.sh"
+	},
+	"enabledPlugins": {
+		"ruby-lsp@claude-plugins-official": true,
+		"codex@openai-codex": true,
+		"figma@claude-plugins-official": true,
+		"claude-code-setup@claude-plugins-official": true,
+		"slack@claude-plugins-official": true
+	},
+	"extraKnownMarketplaces": {
+		"openai-codex": {
+			"source": {
+				"source": "github",
+				"repo": "openai/codex-plugin-cc"
+			}
+		}
+	},
+	"language": "日本語",
+	"effortLevel": "high",
+	"advisorModel": "opus",
+	"remoteControlAtStartup": true,
+	"agentPushNotifEnabled": true,
+	"skipAutoPermissionPrompt": true,
+	"tui": "fullscreen"
 }

@@ -93,6 +93,26 @@ function gwr() {
   git branch -D "$branch_name"
 }
 
+# git worktree を選択して cd するラッパー関数
+function gwcd() {
+  local worktrees
+  worktrees=$(git worktree list 2>/dev/null) || { echo "Not a git repository"; return 1; }
+
+  local selected
+  if command -v fzf > /dev/null 2>&1; then
+    selected=$(echo "$worktrees" | fzf | awk '{print $1}')
+  else
+    local -a paths
+    paths=(${(f)"$(echo "$worktrees" | awk '{print $1}')"})
+    PS3="worktree を選択してください: "
+    select path in "${paths[@]}"; do
+      [[ -n $path ]] && selected=$path && break
+    done
+  fi
+
+  [[ -n $selected ]] && cd "$selected"
+}
+
 function gpm() {
   # ホワイトリストに含めたいリポジトリ名（リモートURLの一部やディレクトリ名など）を配列で定義
   local whitelist=("shu-illy/dotfiles")
