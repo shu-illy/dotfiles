@@ -24,6 +24,7 @@ alias gca='git commit --amend'
 alias lg='lazygit'
 alias gpmf='git push origin main'
 alias gda='git branch | grep -v -E "^\*|main|develop" | xargs -r git branch -D' # 現在のブランチ、mainブランチ、developブランチ以外を全削除
+alias gw='git worktree list'
 
 # git worktree addのラッパー関数
 # 使い方: gwa <directory_name>
