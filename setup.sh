@@ -219,6 +219,7 @@ function link_dotfiles {
   fi
   ln -fs "$DOT_DIR/.config/zed/settings.json" "$HOME/.config/zed/settings.json"
   ln -fs "$DOT_DIR/.config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+  ln -fs "$DOT_DIR/.config/zed/tasks.json" "$HOME/.config/zed/tasks.json"
 
   # --- .config/ai/.codex/設定ファイルのリンク作成 ---
   if [ ! -d "$HOME/.codex" ]; then
