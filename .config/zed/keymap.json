@@ -20,7 +20,19 @@
   },
   {
     "bindings": {
-      "cmd-@": "workspace::ActivateNextWindow"
+      "cmd-@": "workspace::ActivateNextWindow",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "cmd-shift-n": "project_panel::NewDirectory"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "unbind": {
+      "alt-cmd-n": "project_panel::NewDirectory"
     }
   }
 ]

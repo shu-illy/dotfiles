@@ -1,0 +1,8 @@
+[
+  {
+    "label": "Toggle spec/source",
+    "command": "f=\"$ZED_FILE\"; if echo \"$f\" | grep -q '_spec\\.rb$'; then zed \"$(echo \"$f\" | sed 's|/spec/|/app/|; s|_spec\\.rb$|.rb|')\"; else zed \"$(echo \"$f\" | sed 's|/app/|/spec/|; s|\\.rb$|_spec.rb|')\"; fi",
+    "hide": "always",
+    "tags": ["toggle-spec"]
+  }
+]
