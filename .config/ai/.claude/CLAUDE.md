@@ -7,6 +7,7 @@
 ### PR 作成
 
 - YOU MUST: PR 作成を指示された時に、リポジトリ内に @.github/PULL_REQUEST_TEMPLATE.md ファイルがあれば、必ずそのフォーマットに従うようにしてください。
+- YOU MUST: PR 作成時は必ず assignee に `shu-illy` を設定してください（`gh pr create --assignee shu-illy`。設定し忘れた場合は `gh pr edit <番号> --add-assignee shu-illy`）。
 
 ### テスト駆動開発(TDD)
 
