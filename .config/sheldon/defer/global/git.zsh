@@ -72,24 +72,97 @@ function gwa() {
 }
 
 # git worktree removeのラッパー関数
-# 使い方: gwr <directory_name>
+# 使い方:
+#   gwr                    fzf（fzfが無ければ select + PS3）で worktree を選択して削除
+#   gwr <directory_name>   ../wt_{repo}_{name} を削除し、対応する iri/{name} ブランチも削除（従来互換）
+#   gwr <path>             フルパス/相対パスで指定した worktree を削除
 # 例: gwr feature-auth → ../wt_{repo}_feature-auth を削除し、iri/feature-auth ブランチも削除
+#
+# 備考:
+#   - 未コミットの変更等で git worktree remove が失敗しても -f による強制削除は絶対に行わない
+#   - 削除対象に対応するブランチは iri/<name> 規約に依存せず git worktree list --porcelain から特定する
+#     (fzf選択・フルパス指定でも同様に動作する)
+#   - main/master/develop、detached HEAD、bare worktree、branch特定不能な場合はブランチ削除をスキップする
 function gwr() {
-  local name=$1
+  local arg=$1
 
-  if [ -z "$name" ]; then
-    echo "Usage: gwr <directory_name>"
+  local current_toplevel
+  current_toplevel=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not a git repository"; return 1; }
+
+  # git worktree list --porcelain を "path<TAB>branch" の1行形式に整形しておく
+  # (remove の前に取得すること。remove後はここに情報が残らずbranch_nameが空になってしまう)
+  local entries
+  entries=$(git worktree list --porcelain 2>/dev/null | awk '
+    /^worktree /{ path=substr($0, 10); branch="" }
+    /^branch /  { branch=substr($0, 8); sub("^refs/heads/", "", branch) }
+    /^$/        { if (path != "") print path "\t" branch; path="" }
+  ')
+
+  local worktree_path
+
+  if [ -z "$arg" ]; then
+    # 引数なし: fzf（無ければ select）で選択。現在の worktree は一覧から除外
+    local list
+    list=$(echo "$entries" | awk -F'\t' -v cur="$current_toplevel" '$1 != cur')
+
+    if [ -z "$list" ]; then
+      echo "削除可能な worktree がありません"
+      return 1
+    fi
+
+    local selected
+    if command -v fzf > /dev/null 2>&1; then
+      selected=$(echo "$list" | fzf | awk -F'\t' '{print $1}')
+    else
+      local -a paths
+      paths=(${(f)"$(echo "$list" | awk -F'\t' '{print $1}')"})
+      PS3="削除する worktree を選択してください: "
+      # 注意: ループ変数名は "path" にしないこと（zshの特殊変数 $PATH とタイされており破壊される）
+      select choice in "${paths[@]}"; do
+        [[ -n $choice ]] && selected=$choice && break
+      done
+    fi
+
+    if [ -z "$selected" ]; then
+      echo "worktree が選択されませんでした"
+      return 1
+    fi
+    worktree_path=$selected
+  elif [[ "$arg" == */* || -d "$arg" ]]; then
+    # フルパス（または相対パス）指定
+    worktree_path=${arg:A}
+  else
+    # 従来のディレクトリ名規約（iri/<name>, ../wt_<repo>_<name>）
+    local repo_name=$(basename "$current_toplevel")
+    worktree_path="../wt_${repo_name}_${arg}"
+  fi
+
+  worktree_path=${worktree_path:A}
+
+  # 削除対象のworktreeに対応するブランチを remove の前に特定しておく
+  local branch_name
+  branch_name=$(echo "$entries" | awk -F'\t' -v target="$worktree_path" '$1 == target { print $2 }')
+
+  # worktree を削除（未コミットの変更等で失敗しても -f による強制削除は行わない）
+  if ! git worktree remove "$worktree_path"; then
+    echo "worktree の削除に失敗しました: $worktree_path"
+    echo "未コミットの変更が残っている可能性があります。内容を確認のうえ手動で対応してください。"
     return 1
   fi
 
-  local repo_name=$(basename $(git rev-parse --show-toplevel))
-  local branch_name="iri/${name}"
-  local worktree_path="../wt_${repo_name}_${name}"
+  # ブランチの削除（保護ブランチ・detached/bare・特定不能な場合はスキップ）
+  if [ -z "$branch_name" ]; then
+    echo "削除対象のブランチを特定できなかったため、ブランチ削除をスキップしました"
+    return 0
+  fi
 
-  # worktree を削除
-  git worktree remove "$worktree_path"
+  case "$branch_name" in
+    main|master|develop)
+      echo "保護対象のブランチ (${branch_name}) のため削除をスキップしました"
+      return 0
+      ;;
+  esac
 
-  # ブランチも削除
   git branch -D "$branch_name"
 }
 
