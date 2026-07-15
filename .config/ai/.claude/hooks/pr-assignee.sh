@@ -19,10 +19,10 @@ if ! echo "$command" | grep -q "gh pr create"; then
   exit 0
 fi
 
-# tool_result から PR URL を抽出
+# tool_response.stdout から PR URL を抽出
 # gh pr create の stdout は "https://github.com/<owner>/<repo>/pull/<number>" の形式
-tool_result=$(echo "$input" | jq -r '.tool_result // ""')
-pr_url=$(echo "$tool_result" | grep -oE 'https://github\.com/[^[:space:]]+/pull/[0-9]+' | head -1)
+stdout=$(echo "$input" | jq -r '.tool_response.stdout // ""')
+pr_url=$(echo "$stdout" | grep -oE 'https://github\.com/[^[:space:]]+/pull/[0-9]+' | head -1)
 
 if [ -z "$pr_url" ]; then
   exit 0
