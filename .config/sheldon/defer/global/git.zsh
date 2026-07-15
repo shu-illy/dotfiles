@@ -105,8 +105,9 @@ function gwcd() {
     local -a paths
     paths=(${(f)"$(echo "$worktrees" | awk '{print $1}')"})
     PS3="worktree を選択してください: "
-    select path in "${paths[@]}"; do
-      [[ -n $path ]] && selected=$path && break
+    # 注意: ループ変数名は "path" にしないこと（zshの特殊変数 $PATH とタイされており破壊される）
+    select choice in "${paths[@]}"; do
+      [[ -n $choice ]] && selected=$choice && break
     done
   fi
 
