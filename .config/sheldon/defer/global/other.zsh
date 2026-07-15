@@ -16,7 +16,7 @@ alias rctd="bundle exec rubocop --auto-gen-config"
 alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
-alias cu="cursor"
+alias cu="cursor --classic"
 alias xcc='rm -rf ~/Library/Developer/Xcode/DerivedData'
 
 # エイリアス yarn関連
