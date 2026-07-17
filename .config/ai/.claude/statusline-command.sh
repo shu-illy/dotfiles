@@ -16,7 +16,7 @@ WHITE="\033[37m"
 # ---- extract fields ----
 cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // ""')
 model=$(echo "$input" | jq -r '.model.display_name // ""')
-remaining=$(echo "$input" | jq -r '.context_window.remaining_percentage // empty')
+used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 effort=$(echo "$input" | jq -r '.effort.level // empty')
 output_style=$(echo "$input" | jq -r '.output_style.name // "default"')
 vim_mode=$(echo "$input" | jq -r '.vim.mode // empty')
@@ -52,12 +52,12 @@ fi
 # model
 [[ -n "$model" ]] && parts+=("$(printf "${WHITE}%s${RESET}" "$model")")
 
-# context remaining %
-if [[ -n "$remaining" ]]; then
-  pct=$(printf "%.0f" "$remaining")
-  if (( pct <= 20 )); then
+# context used %
+if [[ -n "$used" ]]; then
+  pct=$(printf "%.0f" "$used")
+  if (( pct >= 80 )); then
     color="$RED"
-  elif (( pct <= 50 )); then
+  elif (( pct >= 50 )); then
     color="$YELLOW"
   else
     color="$GREEN"
