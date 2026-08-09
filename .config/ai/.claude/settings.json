@@ -38,7 +38,15 @@
       "Bash(yarn tsc:*)",
       "Bash(echo:*)",
       "Read(//tmp/claude_task_*.md)",
-      "Read(//private/tmp/claude_task_*.md)"
+      "Read(//private/tmp/claude_task_*.md)",
+      "Bash(git -C * log *)",
+      "Bash(git -C * diff *)",
+      "Bash(git -C * status)",
+      "Bash(git -C * status *)",
+      "Bash(git -C * show *)",
+      "Bash(git -C * branch)",
+      "Bash(git -C * branch *)",
+      "Bash(git -C * rev-parse *)"
     ],
     "deny": [
       "Bash(git remote add:*)",
