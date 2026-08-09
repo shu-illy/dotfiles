@@ -46,7 +46,11 @@
       "Bash(git -C * show *)",
       "Bash(git -C * branch)",
       "Bash(git -C * branch *)",
-      "Bash(git -C * rev-parse *)"
+      "Bash(git -C * rev-parse *)",
+      "Read(//tmp/cmux-dash/**)",
+      "Read(//private/tmp/cmux-dash/**)",
+      "Edit(//tmp/cmux-dash/**)",
+      "Edit(//private/tmp/cmux-dash/**)"
     ],
     "deny": [
       "Bash(git remote add:*)",
