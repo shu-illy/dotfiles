@@ -55,7 +55,10 @@
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "plan",
+    "additionalDirectories": [
+      "/Users/shuheiiriyama/.claude/handover"
+    ]
   },
   "model": "claude-sonnet-5",
   "hooks": {
