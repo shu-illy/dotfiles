@@ -60,7 +60,7 @@
       "/Users/shuheiiriyama/.claude/handover"
     ]
   },
-  "model": "claude-sonnet-5",
+  "model": "opus[1m]",
   "hooks": {
     "PostToolUse": [
       {
