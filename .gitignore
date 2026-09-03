@@ -5,3 +5,5 @@ Homebrew/.Brewfile.lock.json
 .DS_Store
 
 .config/wezterm/local.lua
+# private スキル（実体は secretary リポジトリ、ローカル symlink のみ）
+.config/ai/.claude/skills/deploy-develop
