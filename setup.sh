@@ -227,6 +227,21 @@ function link_dotfiles {
   fi
   ln -fs "$DOT_DIR/.config/ai/.codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
 
+  # --- .config/ai/.codex/skills/のリンク作成 ---
+  # ~/.codex/skills/ には Codex 配布の .system/ が入っているため、
+  # ディレクトリごとではなく skill 単位でリンクする
+  if [ ! -d "$HOME/.codex/skills" ]; then
+    mkdir -p "$HOME/.codex/skills"
+  fi
+  for skill_dir in "$DOT_DIR"/.config/ai/.codex/skills/*(N/); do
+    skill_target="$HOME/.codex/skills/${skill_dir:t}"
+    # -e はリンク先を辿るためリンク切れを検出できない。-L と併用して確実に除去する
+    if [ -e "$skill_target" ] || [ -L "$skill_target" ]; then
+      rm -rf "$skill_target"
+    fi
+    ln -fs "$skill_dir" "$skill_target"
+  done
+
   # --- .config/ai/.gemini/設定ファイルのリンク作成 ---
   if [ ! -d "$HOME/.gemini" ]; then
     mkdir -p "$HOME/.gemini"

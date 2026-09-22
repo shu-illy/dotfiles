@@ -67,9 +67,12 @@
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
     ],
-    "defaultMode": "auto"
+    "defaultMode": "plan",
+    "additionalDirectories": [
+      "/Users/shuheiiriyama/.claude/handover"
+    ]
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -92,13 +95,20 @@
     "codex@openai-codex": true,
     "figma@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "genshijin@genshijin": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
       "source": {
         "source": "github",
         "repo": "openai/codex-plugin-cc"
+      }
+    },
+    "genshijin": {
+      "source": {
+        "source": "github",
+        "repo": "InterfaceX-co-jp/genshijin"
       }
     }
   },
