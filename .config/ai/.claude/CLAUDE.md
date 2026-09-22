@@ -9,6 +9,16 @@
 - YOU MUST: PR 作成を指示された時に、リポジトリ内に @.github/PULL_REQUEST_TEMPLATE.md ファイルがあれば、必ずそのフォーマットに従うようにしてください。
 - YOU MUST: PR 作成時は必ず assignee に `shu-illy` を設定してください（`gh pr create --assignee shu-illy`。設定し忘れた場合は `gh pr edit <番号> --add-assignee shu-illy`）。
 
+### GitHub へのコメント投稿
+
+- YOU MUST: GitHub にコメントを投稿する場合（`gh pr comment` / `gh issue comment` / レビューコメント等、手段を問わず）、**Claude からのコメントであることが分かる注記をコメント末尾に必ず付けてください**:
+
+  ```
+  🤖 Generated with [Claude Code](https://claude.com/claude-code)
+  ```
+
+- 人間（shu-illy 本人）の発言と誤認されないようにするためのルールです。省略してよいのはオーナーが「注記なしで」と明示した場合のみ。
+
 ### テスト駆動開発(TDD)
 
 - 機能実装を行う際には t_wada 氏が推奨する TDD に従って進めてください。

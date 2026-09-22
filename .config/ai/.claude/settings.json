@@ -67,7 +67,7 @@
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "model": "claude-fable-5[1m]",
   "hooks": {
@@ -108,5 +108,32 @@
   "tui": "fullscreen",
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "- **Organization**: LiberalArtsUniversity (GitHub org) — scope limited to this repo (github.com/LiberalArtsUniversity/libe-furima); org-wide posture was not gathered",
+      "- **Cloud provider(s)**: Google Cloud (GCP) — repo config references project dev-fukuro, Cloud SQL, GCS, Cloud Functions/Tasks, and Firebase (from .env.sample; context only, not a trust grant)",
+      "- **Repository visibility**: PRIVATE (confirmed via gh for LiberalArtsUniversity/libe-furima)",
+      "- **Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "- **Secrets management**: .env is gitignored (with .env.sample template); Rails encrypted credentials at config/credentials.yml.enc; CI secrets held in GitHub Actions (names seen: CI_GITHUB_APP_ID, CI_GITHUB_APP_PRIVATE_KEY, GAKUSAPO_GITHUB_TOKEN, GITHUB_TOKEN) — values never surfaced",
+      "- **Default / protected branches**: default branch `develop`; protected branches `develop` and `production` (via gh) — changes to these land via PR, not direct push",
+      "- **CI/CD deploy targets**: None configured — .github/workflows exist but no deploy target was evidenced",
+      "- **Network posture**: None configured",
+      "- **Source control**: The trusted repo and its remote only: github.com/LiberalArtsUniversity/libe-furima (private) — no additional orgs or repos configured",
+      "- **Trusted internal domains**: None configured",
+      "- **Trusted cloud buckets**: None configured — the GCS bucket in .env.sample is a placeholder (xxx) with no usage corroboration",
+      "- **Key internal services**: None configured",
+      "- **Internal package registry**: None configured",
+      "- **Sensitive data locations & audiences**: .env (gitignored), config/credentials.yml.enc, and any gcp-service-account.json / firebase-adminsdk-service-account.json files; plus any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar",
+      "- **Data retention / declassification**: None configured",
+      "- **Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited — e.g. matches `prod-db`, not `producer`); note the protected `production` branch in this repo qualifies",
+      "- **Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "- **Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "- **Primary use of Claude Code**: software development — Rails app work in this repo (Japanese-language responses per user CLAUDE.md); mixed personal/work posture leaning personal",
+      "- **Trusted repo**: /Users/shilly/repositories/github.com/LiberalArtsUniversity/libe-furima and its origin remote github.com/LiberalArtsUniversity/libe-furima. The repo is PRIVATE, so confidential material is fine to commit or push there; secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility",
+      "- **Org-specific CLIs**: None configured — observed tooling (bundle, rails, docker-compose, gh, mise) is standard"
+    ]
+  }
 }

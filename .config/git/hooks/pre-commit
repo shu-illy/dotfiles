@@ -15,14 +15,6 @@ fi
 
 FAILED=0
 
-if [ ${#STAGED_RUBY[@]} -gt 0 ]; then
-  if command -v bundle &>/dev/null && bundle exec rubocop --version &>/dev/null 2>&1; then
-    bundle exec rubocop "${STAGED_RUBY[@]}" || FAILED=1
-  elif command -v rubocop &>/dev/null; then
-    rubocop "${STAGED_RUBY[@]}" || FAILED=1
-  fi
-fi
-
 if [ ${#STAGED_TS[@]} -gt 0 ]; then
   if command -v npm &>/dev/null; then
     npm exec --no -- eslint "${STAGED_TS[@]}" || FAILED=1

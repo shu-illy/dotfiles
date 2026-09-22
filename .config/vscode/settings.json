@@ -258,7 +258,7 @@
 		"editor.defaultFormatter": "ms-azuretools.vscode-docker",
 		"editor.formatOnSave": false
 	},
-	"update.releaseTrack": "prerelease",
+	"update.releaseTrack": "dev",
 	"[dockercompose]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
@@ -288,4 +288,12 @@
 		"https://biomejs.dev": true
 	},
 	"window.autoDetectColorScheme": false,
+	"yaml.disableSchemaDetection": [
+		"**/.github/workflows/*.yml",
+		"**/.github/workflows/*.yaml",
+		"**/.gitea/workflows/*.yml",
+		"**/.gitea/workflows/*.yaml",
+		"**/.forgejo/workflows/*.yml",
+		"**/.forgejo/workflows/*.yaml"
+	],
 }
