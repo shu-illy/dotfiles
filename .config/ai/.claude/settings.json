@@ -67,7 +67,7 @@
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
     ],
-    "defaultMode": "plan",
+    "defaultMode": "auto",
     "additionalDirectories": [
       "/Users/shuheiiriyama/.claude/handover"
     ]
