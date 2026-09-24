@@ -13,3 +13,5 @@
 
 - IMPORTANT: セキュリティベストプラクティスに従う
 - YOU MUST: 回答を求められた時は、日本語で出力する
+
+@/Users/shuheiiriyama/.codex/RTK.md
