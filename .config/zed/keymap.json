@@ -34,5 +34,23 @@
     "unbind": {
       "alt-cmd-n": "project_panel::NewDirectory"
     }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-backspace": "editor::DeleteToBeginningOfLine"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-backspace": "editor::DeleteLine"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-shift-k": "editor::DeleteLine"
+    }
   }
 ]

@@ -1,6 +1,10 @@
 {
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
   "permissions": {
     "allow": [
+      "SendMessage",
       "Read(**/*.md)",
       "Bash(npm run lint)",
       "Bash(npm run test:*)",
@@ -55,7 +59,7 @@
       "Bash(gh project create:*)",
       "Bash(gh project delete:*)"
     ],
-    "defaultMode": "plan",
+    "defaultMode": "auto",
     "additionalDirectories": [
       "/Users/shuheiiriyama/.claude/handover"
     ]
@@ -84,7 +88,8 @@
     "figma@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "genshijin@genshijin": true
+    "genshijin@genshijin": true,
+    "crit@crit": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -98,6 +103,12 @@
         "source": "github",
         "repo": "InterfaceX-co-jp/genshijin"
       }
+    },
+    "crit": {
+      "source": {
+        "source": "github",
+        "repo": "tomasz-tomczyk/crit"
+      }
     }
   },
   "language": "日本語",
@@ -106,5 +117,10 @@
   "tui": "fullscreen",
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "medium"
+    }
+  }
 }

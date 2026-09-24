@@ -258,7 +258,7 @@
 		"editor.defaultFormatter": "ms-azuretools.vscode-docker",
 		"editor.formatOnSave": false
 	},
-	"update.releaseTrack": "prerelease",
+	"update.releaseTrack": "stable",
 	"[dockercompose]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
