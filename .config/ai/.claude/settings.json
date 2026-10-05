@@ -249,7 +249,7 @@
   },
   "enabledPlugins": {
     "ruby-lsp@claude-plugins-official": true,
-    "codex@openai-codex": true,
+    "codex@openai-codex": false,
     "figma@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "slack@claude-plugins-official": true,

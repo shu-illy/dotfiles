@@ -1,17 +1,20 @@
 ---
 name: handover
-description: 現在の会話文脈（やっていたタスク、完了/未完了の作業、重要な決定事項、関連ファイル・PR・issueリンク）を要約した引き継ぎ書 Markdown を生成し保存する。コンテキスト圧縮（/compact）前や作業の区切りで手動実行する。「引き継ぎ書を作って」「/handover」「引き継ぎして」等で起動する。
+description: 現在の会話文脈（やっていたタスク、完了/未完了の作業、重要な決定事項、関連ファイル・PR・issueリンク）を要約した引き継ぎ書 Markdown を生成し保存する。コンテキスト圧縮（/compact）前や作業の区切りで実行する。「引き継ぎ書を作って」「/handover」「引き継ぎして」等で起動する。
 allowed-tools:
   - Bash(date *)
   - Bash(ls *)
   - Bash(pwd)
   - Bash(mkdir *)
-  - Bash(git *)
-  - Bash(gh *)
+  - Bash(git rev-parse *)
+  - Bash(git status *)
+  - Bash(git log *)
+  - Bash(git branch --show-current)
+  - Bash(gh pr view *)
+  - Bash(gh issue view *)
   - Read
   - Write
 user-invocable: true
-disable-model-invocation: true
 argument-hint: "[補足情報・強調したい論点]"
 ---
 
@@ -83,7 +86,7 @@ pwd
 
 ## 重要な決定事項
 
-（設計判断・技術選定とその理由。Codexとの壁打ち結果があれば含める）
+（設計判断・技術選定とその理由。サブエージェントや他のエージェント（Claude Code / Codex）によるレビュー・相談の結果があれば含める）
 
 ## 関連リンク
 
