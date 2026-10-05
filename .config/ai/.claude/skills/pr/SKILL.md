@@ -69,6 +69,18 @@ gitmoji を prefix に入れてタイトルを生成：
 
 - GitHub CLI を使用して PR を作成
 
+#### PR 本文に画像・動画を貼る場合
+
+- YOU MUST: 画像・動画（スクリーンショット等）は `gh pr create` の `--attach` オプションでアップロードして貼ること（gh 2.101.0 以降）
+  - 本文中で `![alt](./login.png)` のようにローカルパスで参照し、同じファイルを `--attach` に渡すと、参照がアップロード後の URL に書き換えられる
+  - 本文で参照しなかった添付ファイルは本文末尾に追記される
+  - alt テキストは `--attach './login.png#ログインエラーの状態'` のように `#` の後に書く（本文中で参照している場合は本文側の alt が優先される）
+  - 1 コマンドあたり最大 50 ファイル。複数ある場合は `--attach ./before.png --attach ./after.png` のように繰り返す
+  - 例: `gh pr create --base main --title "..." --body-file body.md --attach './before.png#変更前' --attach './after.png#変更後' --assignee shu-illy`
+- 一部の添付に失敗しても PR は作成され、コマンドは非ゼロで終了する（PR の URL は stdout に出力される）。失敗した場合は出力を確認し、ユーザーに報告すること
+- NEVER: 画像を貼るためだけにリポジトリへ画像をコミットしたり、外部の画像ホスティングサービスへアップロードしたりしないこと
+- `gh pr edit` には `--attach` がないため、作成後に画像を追加したい場合はユーザーに相談すること
+
 ### 7. assignee の追加
 
 - 作成したPRのassigneeに`shu-illy`を設定
