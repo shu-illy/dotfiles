@@ -168,7 +168,8 @@ function link_dotfiles {
   fi
   ln -fs "$DOT_DIR/.config/ai/.claude/settings.json" "$HOME/.claude/settings.json"
   ln -fs "$DOT_DIR/.config/ai/.claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
-  ln -fs "$DOT_DIR/.config/ai/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  # Claude Code と Codex で共有するグローバル指示ファイル（Codex 側は下の ~/.codex/AGENTS.md）
+  ln -fs "$DOT_DIR/.config/ai/global-instructions.md" "$HOME/.claude/CLAUDE.md"
   # 既存のファイルやディレクトリを削除してからシンボリックリンクを作成
   if [ -e "$HOME/.claude/commands" ]; then
     rm -rf "$HOME/.claude/commands"
@@ -225,7 +226,11 @@ function link_dotfiles {
   if [ ! -d "$HOME/.codex" ]; then
     mkdir -p "$HOME/.codex"
   fi
-  ln -fs "$DOT_DIR/.config/ai/.codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
+  ln -fs "$DOT_DIR/.config/ai/global-instructions.md" "$HOME/.codex/AGENTS.md"
+  # RTK のルールは共有指示ファイルに統合したため、旧 RTK.md へのリンクを除去する
+  if [ -L "$HOME/.codex/RTK.md" ]; then
+    rm "$HOME/.codex/RTK.md"
+  fi
 
   # --- .config/ai/.codex/skills/のリンク作成 ---
   # ~/.codex/skills/ には Codex 配布の .system/ が入っているため、
