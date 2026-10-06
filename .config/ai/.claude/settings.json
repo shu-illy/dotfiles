@@ -254,7 +254,8 @@
     "claude-code-setup@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "genshijin@genshijin": true,
-    "crit@crit": true
+    "crit@crit": true,
+    "yomiyasu@yomiyasu": true
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -273,6 +274,12 @@
       "source": {
         "source": "github",
         "repo": "tomasz-tomczyk/crit"
+      }
+    },
+    "yomiyasu": {
+      "source": {
+        "source": "github",
+        "repo": "nanaism/yomiyasu"
       }
     }
   },
