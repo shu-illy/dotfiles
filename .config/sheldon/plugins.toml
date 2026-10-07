@@ -48,12 +48,12 @@ inline = 'eval "$(direnv hook zsh)"'
 
 [plugins.windsurf]
 inline = '''
-export PATH="~/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 '''
 
 [plugins.pnpm]
 inline = '''
-export PNPM_HOME="~/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
