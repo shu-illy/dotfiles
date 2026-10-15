@@ -42,14 +42,6 @@
       "Bash(echo:*)",
       "Read(//tmp/claude_task_*.md)",
       "Read(//private/tmp/claude_task_*.md)",
-      "Bash(git -C * log *)",
-      "Bash(git -C * diff *)",
-      "Bash(git -C * status)",
-      "Bash(git -C * status *)",
-      "Bash(git -C * show *)",
-      "Bash(git -C * branch)",
-      "Bash(git -C * branch *)",
-      "Bash(git -C * rev-parse *)",
       "Read(//tmp/cmux-dash/**)",
       "Read(//private/tmp/cmux-dash/**)",
       "Edit(//tmp/cmux-dash/**)",
@@ -105,6 +97,15 @@
           {
             "type": "command",
             "command": "rtk hook claude"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Edit|MultiEdit|NotebookEdit|Grep|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 $HOME/.claude/hooks/deny-env-read.py"
           }
         ]
       },
