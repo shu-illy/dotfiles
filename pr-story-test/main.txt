@@ -1,5 +1,6 @@
 alpha
-beta
+BETA
 gamma
 delta
-epsilon
+zeta
+eta
